@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF8ABB401F002DEC007AA085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */; };
+		BF8ABB451F002DEC007AA085 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB431F002DEC007AA085 /* Main.storyboard */; };
+		BF8ABB471F002DEC007AA085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB461F002DEC007AA085 /* Assets.xcassets */; };
+		BF8ABB4A1F002DEC007AA085 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB481F002DEC007AA085 /* LaunchScreen.storyboard */; };
+		BF8ABB5F1F003A1F007AA085 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB511F003A1F007AA085 /* down.png */; };
+		BF8ABB601F003A1F007AA085 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB521F003A1F007AA085 /* up.png */; };
+		BF8ABB611F003A1F007AA085 /* minno.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB531F003A1F007AA085 /* minno.jpg */; };
+		BF8ABB621F003A1F007AA085 /* backarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB541F003A1F007AA085 /* backarrow.png */; };
+		BF8ABB631F003A1F007AA085 /* youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB551F003A1F007AA085 /* youtube.png */; };
+		BF8ABB641F003A1F007AA085 /* feed.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB561F003A1F007AA085 /* feed.jpeg */; };
+		BF8ABB651F003A1F007AA085 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB571F003A1F007AA085 /* avatar.png */; };
+		BF8ABB661F003A1F007AA085 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB581F003A1F007AA085 /* settings.png */; };
+		BF8ABB671F003A1F007AA085 /* linkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB591F003A1F007AA085 /* linkedin.png */; };
+		BF8ABB681F003A1F007AA085 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5A1F003A1F007AA085 /* twitter.png */; };
+		BF8ABB691F003A1F007AA085 /* instagram3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5B1F003A1F007AA085 /* instagram3.jpg */; };
+		BF8ABB6A1F003A1F007AA085 /* profile3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5C1F003A1F007AA085 /* profile3.jpg */; };
+		BF8ABB6B1F003A1F007AA085 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5D1F003A1F007AA085 /* facebook.png */; };
+		BF8ABB6C1F003A1F007AA085 /* snapchat.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5E1F003A1F007AA085 /* snapchat.png */; };
+		BF8ABB6F1F003EA7007AA085 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB6E1F003EA7007AA085 /* ProfileViewController.swift */; };
+		BF8ABB731F004672007AA085 /* ConnectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB721F004672007AA085 /* ConnectsTableViewController.swift */; };
+		BF8ABB751F006A7D007AA085 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB741F006A7D007AA085 /* SettingsTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BF8ABB3C1F002DEC007AA085 /* MinnoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinnoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF8ABB441F002DEC007AA085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF8ABB461F002DEC007AA085 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF8ABB491F002DEC007AA085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF8ABB4B1F002DED007AA085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF8ABB511F003A1F007AA085 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = down.png; path = ../../../../Downloads/down.png; sourceTree = "<group>"; };
+		BF8ABB521F003A1F007AA085 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = up.png; path = ../../../../Downloads/up.png; sourceTree = "<group>"; };
+		BF8ABB531F003A1F007AA085 /* minno.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = minno.jpg; path = ../../minno.jpg; sourceTree = "<group>"; };
+		BF8ABB541F003A1F007AA085 /* backarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backarrow.png; path = ../../../../Downloads/backarrow.png; sourceTree = "<group>"; };
+		BF8ABB551F003A1F007AA085 /* youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = youtube.png; path = ../../Minno/app/src/main/res/drawable/youtube.png; sourceTree = "<group>"; };
+		BF8ABB561F003A1F007AA085 /* feed.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = feed.jpeg; path = ../../TestApp/TestApp/feed.jpeg; sourceTree = "<group>"; };
+		BF8ABB571F003A1F007AA085 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = ../../TestApp/TestApp/avatar.png; sourceTree = "<group>"; };
+		BF8ABB581F003A1F007AA085 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = ../../TestApp/TestApp/settings.png; sourceTree = "<group>"; };
+		BF8ABB591F003A1F007AA085 /* linkedin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = linkedin.png; path = ../../TestApp/TestApp/linkedin.png; sourceTree = "<group>"; };
+		BF8ABB5A1F003A1F007AA085 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitter.png; path = ../../TestApp/TestApp/twitter.png; sourceTree = "<group>"; };
+		BF8ABB5B1F003A1F007AA085 /* instagram3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = instagram3.jpg; path = ../../TestApp/TestApp/instagram3.jpg; sourceTree = "<group>"; };
+		BF8ABB5C1F003A1F007AA085 /* profile3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = profile3.jpg; path = ../../Minno/app/src/main/res/drawable/profile3.jpg; sourceTree = "<group>"; };
+		BF8ABB5D1F003A1F007AA085 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../Minno/app/src/main/res/drawable/facebook.png; sourceTree = "<group>"; };
+		BF8ABB5E1F003A1F007AA085 /* snapchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snapchat.png; path = ../../Minno/app/src/main/res/drawable/snapchat.png; sourceTree = "<group>"; };
+		BF8ABB6E1F003EA7007AA085 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BF8ABB721F004672007AA085 /* ConnectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectsTableViewController.swift; sourceTree = "<group>"; };
+		BF8ABB741F006A7D007AA085 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF8ABB391F002DEC007AA085 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF8ABB331F002DEB007AA085 = {
+			isa = PBXGroup;
+			children = (
+				BF8ABB3E1F002DEC007AA085 /* MinnoSwift */,
+				BF8ABB3D1F002DEC007AA085 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF8ABB3D1F002DEC007AA085 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF8ABB3C1F002DEC007AA085 /* MinnoSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF8ABB3E1F002DEC007AA085 /* MinnoSwift */ = {
+			isa = PBXGroup;
+			children = (
+				BF8ABB6D1F003A27007AA085 /* Images */,
+				BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */,
+				BF8ABB431F002DEC007AA085 /* Main.storyboard */,
+				BF8ABB461F002DEC007AA085 /* Assets.xcassets */,
+				BF8ABB481F002DEC007AA085 /* LaunchScreen.storyboard */,
+				BF8ABB4B1F002DED007AA085 /* Info.plist */,
+				BF8ABB6E1F003EA7007AA085 /* ProfileViewController.swift */,
+				BF8ABB721F004672007AA085 /* ConnectsTableViewController.swift */,
+				BF8ABB741F006A7D007AA085 /* SettingsTableViewController.swift */,
+			);
+			path = MinnoSwift;
+			sourceTree = "<group>";
+		};
+		BF8ABB6D1F003A27007AA085 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BF8ABB511F003A1F007AA085 /* down.png */,
+				BF8ABB521F003A1F007AA085 /* up.png */,
+				BF8ABB531F003A1F007AA085 /* minno.jpg */,
+				BF8ABB541F003A1F007AA085 /* backarrow.png */,
+				BF8ABB551F003A1F007AA085 /* youtube.png */,
+				BF8ABB561F003A1F007AA085 /* feed.jpeg */,
+				BF8ABB571F003A1F007AA085 /* avatar.png */,
+				BF8ABB581F003A1F007AA085 /* settings.png */,
+				BF8ABB591F003A1F007AA085 /* linkedin.png */,
+				BF8ABB5A1F003A1F007AA085 /* twitter.png */,
+				BF8ABB5B1F003A1F007AA085 /* instagram3.jpg */,
+				BF8ABB5C1F003A1F007AA085 /* profile3.jpg */,
+				BF8ABB5D1F003A1F007AA085 /* facebook.png */,
+				BF8ABB5E1F003A1F007AA085 /* snapchat.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF8ABB3B1F002DEC007AA085 /* MinnoSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF8ABB4E1F002DED007AA085 /* Build configuration list for PBXNativeTarget "MinnoSwift" */;
+			buildPhases = (
+				BF8ABB381F002DEC007AA085 /* Sources */,
+				BF8ABB391F002DEC007AA085 /* Frameworks */,
+				BF8ABB3A1F002DEC007AA085 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MinnoSwift;
+			productName = MinnoSwift;
+			productReference = BF8ABB3C1F002DEC007AA085 /* MinnoSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF8ABB341F002DEB007AA085 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Andrew Takao";
+				TargetAttributes = {
+					BF8ABB3B1F002DEC007AA085 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = L655688FN5;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BF8ABB371F002DEB007AA085 /* Build configuration list for PBXProject "MinnoSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF8ABB331F002DEB007AA085;
+			productRefGroup = BF8ABB3D1F002DEC007AA085 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF8ABB3B1F002DEC007AA085 /* MinnoSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF8ABB3A1F002DEC007AA085 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF8ABB601F003A1F007AA085 /* up.png in Resources */,
+				BF8ABB4A1F002DEC007AA085 /* LaunchScreen.storyboard in Resources */,
+				BF8ABB471F002DEC007AA085 /* Assets.xcassets in Resources */,
+				BF8ABB661F003A1F007AA085 /* settings.png in Resources */,
+				BF8ABB681F003A1F007AA085 /* twitter.png in Resources */,
+				BF8ABB641F003A1F007AA085 /* feed.jpeg in Resources */,
+				BF8ABB691F003A1F007AA085 /* instagram3.jpg in Resources */,
+				BF8ABB6C1F003A1F007AA085 /* snapchat.png in Resources */,
+				BF8ABB631F003A1F007AA085 /* youtube.png in Resources */,
+				BF8ABB6A1F003A1F007AA085 /* profile3.jpg in Resources */,
+				BF8ABB6B1F003A1F007AA085 /* facebook.png in Resources */,
+				BF8ABB451F002DEC007AA085 /* Main.storyboard in Resources */,
+				BF8ABB651F003A1F007AA085 /* avatar.png in Resources */,
+				BF8ABB5F1F003A1F007AA085 /* down.png in Resources */,
+				BF8ABB671F003A1F007AA085 /* linkedin.png in Resources */,
+				BF8ABB621F003A1F007AA085 /* backarrow.png in Resources */,
+				BF8ABB611F003A1F007AA085 /* minno.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF8ABB381F002DEC007AA085 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF8ABB751F006A7D007AA085 /* SettingsTableViewController.swift in Sources */,
+				BF8ABB6F1F003EA7007AA085 /* ProfileViewController.swift in Sources */,
+				BF8ABB401F002DEC007AA085 /* AppDelegate.swift in Sources */,
+				BF8ABB731F004672007AA085 /* ConnectsTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BF8ABB431F002DEC007AA085 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF8ABB441F002DEC007AA085 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF8ABB481F002DEC007AA085 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF8ABB491F002DEC007AA085 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF8ABB4C1F002DED007AA085 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF8ABB4D1F002DED007AA085 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF8ABB4F1F002DED007AA085 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L655688FN5;
+				INFOPLIST_FILE = MinnoSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.takaoandrew.MinnoSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BF8ABB501F002DED007AA085 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L655688FN5;
+				INFOPLIST_FILE = MinnoSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.takaoandrew.MinnoSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF8ABB371F002DEB007AA085 /* Build configuration list for PBXProject "MinnoSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF8ABB4C1F002DED007AA085 /* Debug */,
+				BF8ABB4D1F002DED007AA085 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF8ABB4E1F002DED007AA085 /* Build configuration list for PBXNativeTarget "MinnoSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF8ABB4F1F002DED007AA085 /* Debug */,
+				BF8ABB501F002DED007AA085 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF8ABB341F002DEB007AA085 /* Project object */;
+}
