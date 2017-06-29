@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52D2080B6B41283A66EC9431 /* Pods_MinnoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90BEDEF5B003BD94417067 /* Pods_MinnoSwift.framework */; };
 		BF8ABB401F002DEC007AA085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */; };
 		BF8ABB451F002DEC007AA085 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB431F002DEC007AA085 /* Main.storyboard */; };
 		BF8ABB471F002DEC007AA085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB461F002DEC007AA085 /* Assets.xcassets */; };
@@ -28,9 +29,13 @@
 		BF8ABB6F1F003EA7007AA085 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB6E1F003EA7007AA085 /* ProfileViewController.swift */; };
 		BF8ABB731F004672007AA085 /* ConnectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB721F004672007AA085 /* ConnectsTableViewController.swift */; };
 		BF8ABB751F006A7D007AA085 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB741F006A7D007AA085 /* SettingsTableViewController.swift */; };
+		BF8ABB771F00949D007AA085 /* PrivacyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB761F00949D007AA085 /* PrivacyTableViewController.swift */; };
+		BF8ABB791F00957E007AA085 /* AddRemoveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB781F00957E007AA085 /* AddRemoveTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14BBE3F128BD8C20B2012B31 /* Pods-MinnoSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinnoSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinnoSwift/Pods-MinnoSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		200E9AD6EEE7EDAD91877B55 /* Pods-MinnoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinnoSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinnoSwift/Pods-MinnoSwift.release.xcconfig"; sourceTree = "<group>"; };
 		BF8ABB3C1F002DEC007AA085 /* MinnoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinnoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF8ABB441F002DEC007AA085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +59,9 @@
 		BF8ABB6E1F003EA7007AA085 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BF8ABB721F004672007AA085 /* ConnectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectsTableViewController.swift; sourceTree = "<group>"; };
 		BF8ABB741F006A7D007AA085 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		BF8ABB761F00949D007AA085 /* PrivacyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyTableViewController.swift; sourceTree = "<group>"; };
+		BF8ABB781F00957E007AA085 /* AddRemoveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRemoveTableViewController.swift; sourceTree = "<group>"; };
+		BF90BEDEF5B003BD94417067 /* Pods_MinnoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinnoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,17 +69,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D2080B6B41283A66EC9431 /* Pods_MinnoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10417FEC5DC6B671570A5013 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF90BEDEF5B003BD94417067 /* Pods_MinnoSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63A4D3D74205058378DDC51F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				14BBE3F128BD8C20B2012B31 /* Pods-MinnoSwift.debug.xcconfig */,
+				200E9AD6EEE7EDAD91877B55 /* Pods-MinnoSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BF8ABB331F002DEB007AA085 = {
 			isa = PBXGroup;
 			children = (
 				BF8ABB3E1F002DEC007AA085 /* MinnoSwift */,
 				BF8ABB3D1F002DEC007AA085 /* Products */,
+				63A4D3D74205058378DDC51F /* Pods */,
+				10417FEC5DC6B671570A5013 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +123,8 @@
 				BF8ABB6E1F003EA7007AA085 /* ProfileViewController.swift */,
 				BF8ABB721F004672007AA085 /* ConnectsTableViewController.swift */,
 				BF8ABB741F006A7D007AA085 /* SettingsTableViewController.swift */,
+				BF8ABB761F00949D007AA085 /* PrivacyTableViewController.swift */,
+				BF8ABB781F00957E007AA085 /* AddRemoveTableViewController.swift */,
 			);
 			path = MinnoSwift;
 			sourceTree = "<group>";
@@ -127,9 +157,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF8ABB4E1F002DED007AA085 /* Build configuration list for PBXNativeTarget "MinnoSwift" */;
 			buildPhases = (
+				BB672441B1961346D964D271 /* [CP] Check Pods Manifest.lock */,
 				BF8ABB381F002DEC007AA085 /* Sources */,
 				BF8ABB391F002DEC007AA085 /* Frameworks */,
 				BF8ABB3A1F002DEC007AA085 /* Resources */,
+				F3B5842C24BFBD5DF7AF221F /* [CP] Embed Pods Frameworks */,
+				AC6C8F55C2325FEDBDBC7886 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,15 +235,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AC6C8F55C2325FEDBDBC7886 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MinnoSwift/Pods-MinnoSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB672441B1961346D964D271 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F3B5842C24BFBD5DF7AF221F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MinnoSwift/Pods-MinnoSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BF8ABB381F002DEC007AA085 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8ABB771F00949D007AA085 /* PrivacyTableViewController.swift in Sources */,
 				BF8ABB751F006A7D007AA085 /* SettingsTableViewController.swift in Sources */,
 				BF8ABB6F1F003EA7007AA085 /* ProfileViewController.swift in Sources */,
 				BF8ABB401F002DEC007AA085 /* AppDelegate.swift in Sources */,
 				BF8ABB731F004672007AA085 /* ConnectsTableViewController.swift in Sources */,
+				BF8ABB791F00957E007AA085 /* AddRemoveTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +412,7 @@
 		};
 		BF8ABB4F1F002DED007AA085 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14BBE3F128BD8C20B2012B31 /* Pods-MinnoSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L655688FN5;
@@ -342,6 +426,7 @@
 		};
 		BF8ABB501F002DED007AA085 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 200E9AD6EEE7EDAD91877B55 /* Pods-MinnoSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L655688FN5;

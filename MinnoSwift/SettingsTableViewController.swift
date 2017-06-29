@@ -14,8 +14,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settings = ["your info and linked accounts", "following", "push notifications", "change number",
-        "help center", "give feedback", "terms of use", "data policy", "add or remove social media"]
+        settings = ["privacy settings [TRY ME]", "following", "push notifications", "change number", "terms of use", "data policy", "add or remove social media [TRY ME]"]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,4 +32,34 @@ class SettingsTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if settings(indexPath)
+        var clicked = ""
+        let setting = settings?[indexPath.row]
+        if let setting = setting {
+            clicked = setting
+        }
+        switch(clicked) {
+            case "privacy settings [TRY ME]":
+                print("Success")
+                self.performSegue(withIdentifier: "PrivacySegue", sender: self)
+                return
+            case "add or remove social media [TRY ME]":
+                print("Sucess")
+                self.performSegue(withIdentifier: "AddRemoveSegue", sender: self)
+                return
+            default:
+                return
+        }
+    }
+    
+//    - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if ([[settingsData objectAtIndex:indexPath.row] isEqualToString:@"add or remove social media"]) {
+//    NSLog(@"clicked the right one");
+//    ProfilesVC* profilesVC = [[ProfilesVC alloc] init];
+//    [self presentViewController:profilesVC animated:YES completion:nil];
+//    
+//    }
+//    }
 }

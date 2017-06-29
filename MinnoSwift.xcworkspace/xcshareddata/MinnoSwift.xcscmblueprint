@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8BE20BC97C6C7B88F162FAEDC4F95F23FF509048",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8BE20BC97C6C7B88F162FAEDC4F95F23FF509048" : 9223372036854775807,
+    "CC18661F3F66896F042A3B020F4EE37ADA658DC1" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BA83E65E-6F30-46EB-A740-6F39E36544C2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8BE20BC97C6C7B88F162FAEDC4F95F23FF509048" : "MinnoSwift\/",
+    "CC18661F3F66896F042A3B020F4EE37ADA658DC1" : "TestApp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MinnoSwift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MinnoSwift.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/takaoandrew\/MinnoSwift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8BE20BC97C6C7B88F162FAEDC4F95F23FF509048"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/takaoandrew\/iosminno.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CC18661F3F66896F042A3B020F4EE37ADA658DC1"
+    }
+  ]
+}

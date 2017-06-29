@@ -259,7 +259,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="settings.png"/>
                                 <connections>
-                                    <segue destination="qeF-vJ-VaX" kind="show" id="0WN-jc-6kU"/>
+                                    <segue destination="qeF-vJ-VaX" kind="show" id="Bxc-4L-ZTO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -282,7 +282,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1024.8" y="167.76611694152925"/>
+            <point key="canvasLocation" x="903" y="168"/>
         </scene>
         <!--Connects Table View Controller-->
         <scene sceneID="MNf-9q-JJn">
@@ -315,7 +315,77 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKy-bK-Z5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802.4000000000001" y="168.6656671664168"/>
+            <point key="canvasLocation" x="1801" y="-61"/>
+        </scene>
+        <!--Privacy Table View Controller-->
+        <scene sceneID="ab1-zG-RDy">
+            <objects>
+                <tableViewController id="Njd-zV-aN2" customClass="PrivacyTableViewController" customModule="MinnoSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="53" sectionHeaderHeight="18" sectionFooterHeight="18" id="L6f-7m-ZhL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select media you wish to make private" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9St-Er-vTg">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrivacyCell" rowHeight="53" id="cjD-HQ-wRy">
+                                <rect key="frame" x="0.0" y="90" width="375" height="53"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cjD-HQ-wRy" id="aex-05-b1J">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Njd-zV-aN2" id="GTC-26-8RG"/>
+                            <outlet property="delegate" destination="Njd-zV-aN2" id="7kM-oC-542"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qpH-On-KBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2645.5999999999999" y="437.63118440779613"/>
+        </scene>
+        <!--Add Remove Table View Controller-->
+        <scene sceneID="PFR-99-gfm">
+            <objects>
+                <tableViewController id="2r2-2k-xy4" customClass="AddRemoveTableViewController" customModule="MinnoSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="YmW-sH-CYg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select media you wish to remove" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oFo-L6-uA0">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddRemoveCell" id="gp2-aQ-Nkn">
+                                <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gp2-aQ-Nkn" id="BA2-D1-d0a">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2r2-2k-xy4" id="eBO-ms-xx2"/>
+                            <outlet property="delegate" destination="2r2-2k-xy4" id="shT-7u-d4J"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FKo-qf-F6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2646" y="1104"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="vi0-0H-Lhq">
@@ -340,10 +410,15 @@
                             <outlet property="delegate" destination="qeF-vJ-VaX" id="qGh-C7-3c8"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="0Iz-hQ-Abh"/>
+                    <connections>
+                        <segue destination="2r2-2k-xy4" kind="show" identifier="AddRemoveSegue" id="lj4-sq-bZ6"/>
+                        <segue destination="Njd-zV-aN2" kind="show" identifier="PrivacySegue" id="1lP-nX-Gcx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWz-Ln-cuH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1800.8" y="831.63418290854577"/>
+            <point key="canvasLocation" x="1801" y="630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Unj-PS-EPk">
