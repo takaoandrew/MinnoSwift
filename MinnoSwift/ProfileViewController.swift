@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import JSQMessagesViewController
 
 class ProfileViewController: UIViewController {
 
@@ -22,8 +24,27 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var twitterView: UIView!
     @IBOutlet weak var linkedinView: UIView!
     @IBOutlet weak var seelessView: UIButton!
+    @IBOutlet weak var chatContainerView: UIView!
+    
+    lazy var chatViewController: ChatViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        var viewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        
+        self.addViewControllerAsChildViewController(childViewController: viewController)
+        return viewController
+    }()
+    
     override func viewDidLoad() {
+        chatViewController.view.isHidden = false
         super.viewDidLoad()
+        
+//        chatContainerView.classForCoder(JSQMessagesViewController)
+//        addChildViewController(JSQMessagesViewController)
+//        view.addSubview(JSQMessagesViewController.view)
+//        JSQMessagesViewController.didMove(toParentViewController: self)
+        
+        
         
         connectView.titleLabel?.textAlignment = NSTextAlignment.center
         friendView.titleLabel?.textAlignment = NSTextAlignment.center
@@ -49,6 +70,14 @@ class ProfileViewController: UIViewController {
         //tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(dismissKeyboardTap)
+    }
+    
+    private func addViewControllerAsChildViewController(childViewController: UIViewController) {
+        addChildViewController(childViewController)
+        view.addSubview(childViewController.view)
+        childViewController.view.frame = CGRect(x:0, y:400, width:view.bounds.size.width, height:view.bounds.size.height-400)
+        childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        childViewController.didMove(toParentViewController: self)
     }
     
     func dismissKeyboard() {

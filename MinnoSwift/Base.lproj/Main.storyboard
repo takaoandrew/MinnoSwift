@@ -12,7 +12,6 @@
         <!--Profile View Controller-->
         <scene sceneID="1cQ-Lt-cfq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mGd-Z9-rg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="f1f-Qr-EmK" customClass="ProfileViewController" customModule="MinnoSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gc4-HU-hUS"/>
@@ -222,7 +221,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEX-nB-lwC">
-                                <rect key="frame" x="172" y="380" width="30" height="30"/>
+                                <rect key="frame" x="172" y="372" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="down.png"/>
                                 <connections>
@@ -281,6 +280,7 @@
                         <outlet property="twitterView" destination="Sq8-2B-co0" id="PZc-mq-91s"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mGd-Z9-rg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="903" y="168"/>
         </scene>
@@ -291,7 +291,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" id="qU3-h1-G8Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="fpl-P5-YGj">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -387,6 +387,24 @@
             </objects>
             <point key="canvasLocation" x="2646" y="1104"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="Mbg-a0-bLc">
+            <objects>
+                <viewController storyboardIdentifier="ChatViewController" id="I6e-qw-CJm" customClass="ChatViewController" customModule="MinnoSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uhO-ML-sp2"/>
+                        <viewControllerLayoutGuide type="bottom" id="eiE-4U-OPZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hua-8F-iMa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.27066660729999997" green="0.13989879099999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UdZ-j1-QPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="908"/>
+        </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="vi0-0H-Lhq">
             <objects>
@@ -437,6 +455,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W94-2t-H51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="85.599999999999994" y="167.76611694152925"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pLQ-tB-MQR">
+            <objects>
+                <viewController id="3kb-tc-ORq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fuc-gV-Wg5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dhu-h2-Mr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
