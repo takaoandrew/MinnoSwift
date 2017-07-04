@@ -25,26 +25,33 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var linkedinView: UIView!
     @IBOutlet weak var seelessView: UIButton!
     @IBOutlet weak var chatContainerView: UIView!
+    @IBOutlet weak var profilePictureContainerView: UIView!
     
     lazy var chatViewController: ChatViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         var viewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        var viewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
         
-        self.addViewControllerAsChildViewController(childViewController: viewController)
+        self.addViewControllerAsChildViewController(childViewController: viewController, cGRect: viewFrame)
         return viewController
     }()
     
+    lazy var profilePictureViewController: ProfilePictureViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        var profilePictureController = storyboard.instantiateViewController(withIdentifier: "ProfilePictureViewController") as! ProfilePictureViewController
+        var profilePictureViewFrame = CGRect(x:16, y:105, width:109, height:118)
+        self.addViewControllerAsChildViewController(childViewController: profilePictureController, cGRect: profilePictureViewFrame)
+        return profilePictureController
+        
+    }()
+    
     override func viewDidLoad() {
-        chatViewController.view.isHidden = false
         super.viewDidLoad()
         
-//        chatContainerView.classForCoder(JSQMessagesViewController)
-//        addChildViewController(JSQMessagesViewController)
-//        view.addSubview(JSQMessagesViewController.view)
-//        JSQMessagesViewController.didMove(toParentViewController: self)
-        
-        
+        chatViewController.view.isHidden = false
+        profilePictureViewController.view.isHidden = false
         
         connectView.titleLabel?.textAlignment = NSTextAlignment.center
         friendView.titleLabel?.textAlignment = NSTextAlignment.center
@@ -72,10 +79,10 @@ class ProfileViewController: UIViewController {
         view.addGestureRecognizer(dismissKeyboardTap)
     }
     
-    private func addViewControllerAsChildViewController(childViewController: UIViewController) {
+    private func addViewControllerAsChildViewController(childViewController: UIViewController, cGRect: CGRect) {
         addChildViewController(childViewController)
         view.addSubview(childViewController.view)
-        childViewController.view.frame = CGRect(x:0, y:400, width:view.bounds.size.width, height:view.bounds.size.height-400)
+        childViewController.view.frame = cGRect
         childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         childViewController.didMove(toParentViewController: self)
     }
@@ -167,6 +174,8 @@ class ProfileViewController: UIViewController {
         linkedinView.isHidden = false
         seelessView.isHidden = false
         seemoreView.isHidden = true
+        chatViewController.view.frame = CGRect(x:0, y:550, width:view.bounds.size.width, height:view.bounds.size.height-550)
+
     }
 
     @IBAction func seelessClicked(_ sender: Any) {
@@ -175,5 +184,6 @@ class ProfileViewController: UIViewController {
         linkedinView.isHidden = true
         seelessView.isHidden = true
         seemoreView.isHidden = false
+        chatViewController.view.frame = CGRect(x:0, y:400, width:view.bounds.size.width, height:view.bounds.size.height-400)
     }
 }

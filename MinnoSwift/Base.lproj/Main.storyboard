@@ -34,7 +34,7 @@
                                 <rect key="frame" x="335" y="10" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="R5e-EC-FGU">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="R5e-EC-FGU">
                                 <rect key="frame" x="16" y="105" width="109" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -387,6 +387,42 @@
             </objects>
             <point key="canvasLocation" x="2646" y="1104"/>
         </scene>
+        <!--Profile Picture View Controller-->
+        <scene sceneID="yE4-Yh-LgB">
+            <objects>
+                <viewController storyboardIdentifier="ProfilePictureViewController" id="aFv-eg-dS5" customClass="ProfilePictureViewController" customModule="MinnoSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xpH-wI-xOP"/>
+                        <viewControllerLayoutGuide type="bottom" id="45a-k6-Xgh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uWI-1h-fN8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zeo-lR-3rN">
+                                <rect key="frame" x="0.0" y="0.0" width="109" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8A-tn-1Gp">
+                                <rect key="frame" x="0.0" y="0.0" width="109" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Click to add"/>
+                                <connections>
+                                    <action selector="btnClicked:" destination="aFv-eg-dS5" eventType="touchUpInside" id="UYY-Bc-zdd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.21528214873284515" green="0.23710638074341955" blue="0.93482312817258884" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="chooseButton" destination="Y8A-tn-1Gp" id="KBr-7Y-3J7"/>
+                        <outlet property="imageView" destination="Zeo-lR-3rN" id="IXK-yG-8rB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cB0-kb-due" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88.799999999999997" y="895.50224887556226"/>
+        </scene>
         <!--Chat View Controller-->
         <scene sceneID="Mbg-a0-bLc">
             <objects>
@@ -398,7 +434,7 @@
                     <view key="view" contentMode="scaleToFill" id="Hua-8F-iMa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.27066660729999997" green="0.13989879099999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.27066660729999997" green="0.13989879099999999" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdZ-j1-QPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -460,6 +496,10 @@
         <scene sceneID="pLQ-tB-MQR">
             <objects>
                 <viewController id="3kb-tc-ORq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gf1-hI-Al3"/>
+                        <viewControllerLayoutGuide type="bottom" id="OoT-fG-kEY"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fuc-gV-Wg5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
