@@ -11,6 +11,9 @@ import Firebase
 import JSQMessagesViewController
 
 class ProfileViewController: UIViewController {
+    
+    
+    var programVar : String?
 
     @IBOutlet weak var contactView: UIButton!
     @IBOutlet weak var echoView: UIButton!
@@ -27,34 +30,47 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var chatContainerView: UIView!
     @IBOutlet weak var profilePictureContainerView: UIView!
     
-    lazy var chatViewController: ChatViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-        var viewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
-        
-        self.addViewControllerAsChildViewController(childViewController: viewController, cGRect: viewFrame)
-        return viewController
-    }()
+    
     
     lazy var profilePictureViewController: ProfilePictureViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         var profilePictureController = storyboard.instantiateViewController(withIdentifier: "ProfilePictureViewController") as! ProfilePictureViewController
-        var profilePictureViewFrame = CGRect(x:16, y:105, width:109, height:118)
+        var profilePictureViewFrame: CGRect
+        if self.view.bounds.size.height >= 580 {
+            profilePictureViewFrame = CGRect(x:16, y:105, width:109, height:118)
+        }
+        else {
+            print("small picture")
+            profilePictureViewFrame = CGRect(x:35, y:105, width:90, height:57)
+        }
         self.addViewControllerAsChildViewController(childViewController: profilePictureController, cGRect: profilePictureViewFrame)
         return profilePictureController
         
     }()
     
+    lazy var chatViewController: ChatViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        var viewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        var chatViewFrame: CGRect
+        
+        if self.view.bounds.size.height >= 580 {
+            chatViewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
+        }
+        else {
+            print("small picture")
+            chatViewFrame = CGRect(x:0, y:360, width:self.view.bounds.size.width, height:self.view.bounds.size.height-360)
+        }
+        
+        self.addViewControllerAsChildViewController(childViewController: viewController, cGRect: chatViewFrame)
+        return viewController
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        chatViewController.view.isHidden = false
-        profilePictureViewController.view.isHidden = false
-        
-        connectView.titleLabel?.textAlignment = NSTextAlignment.center
-        friendView.titleLabel?.textAlignment = NSTextAlignment.center
+    
         
         let facebookTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.facebookTapped(sender:)))
         facebookView.addGestureRecognizer(facebookTap)
@@ -74,10 +90,30 @@ class ProfileViewController: UIViewController {
         let dismissKeyboardTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.dismissKeyboard))
         
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
+        dismissKeyboardTap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(dismissKeyboardTap)
+        
+        chatViewController.view.isHidden = false
+        profilePictureViewController.view.isHidden = false
+
+        connectView.titleLabel?.textAlignment = NSTextAlignment.center
+        friendView.titleLabel?.textAlignment = NSTextAlignment.center
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        print("showing")
+        facebookView.isUserInteractionEnabled = false
+        instagramView.isUserInteractionEnabled = false
+        snapchatView.isUserInteractionEnabled = false
+        twitterView.isUserInteractionEnabled = false
+        linkedinView.isUserInteractionEnabled = false
+        
+    }
+    
     
     private func addViewControllerAsChildViewController(childViewController: UIViewController, cGRect: CGRect) {
         addChildViewController(childViewController)
@@ -89,6 +125,11 @@ class ProfileViewController: UIViewController {
     
     func dismissKeyboard() {
         view.endEditing(true)
+        facebookView.isUserInteractionEnabled = true
+        instagramView.isUserInteractionEnabled = true
+        snapchatView.isUserInteractionEnabled = true
+        twitterView.isUserInteractionEnabled = true
+        linkedinView.isUserInteractionEnabled = true
     }
 
     
@@ -113,7 +154,7 @@ class ProfileViewController: UIViewController {
         {
             UIApplication.shared.open(facebookUrl! as URL, options: [:], completionHandler: nil)
         } else {
-            UIApplication.shared.open(NSURL(string: "http://facebook.com/")! as URL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(NSURL(string: "http://facebook.com/trevor.massey.35")! as URL, options: [:], completionHandler: nil)
         }
 
     }
@@ -125,7 +166,7 @@ class ProfileViewController: UIViewController {
         {
             UIApplication.shared.open(instagramUrl! as URL, options: [:], completionHandler: nil)
         } else {
-            UIApplication.shared.open(NSURL(string: "http://instagram.com/")! as URL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(NSURL(string: "http://instagram.com/trev_mass")! as URL, options: [:], completionHandler: nil)
         }
     }
     
@@ -136,7 +177,7 @@ class ProfileViewController: UIViewController {
         {
             UIApplication.shared.open(snapchatUrl! as URL, options: [:], completionHandler: nil)
         } else {
-            UIApplication.shared.open(NSURL(string: "http://snapchat.com/")! as URL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(NSURL(string: "http://snapchat.com/tmass9")! as URL, options: [:], completionHandler: nil)
         }
     }
     
@@ -147,7 +188,7 @@ class ProfileViewController: UIViewController {
         {
             UIApplication.shared.open(twitterUrl! as URL, options: [:], completionHandler: nil)
         } else {
-            UIApplication.shared.open(NSURL(string: "http://twitter.com/")! as URL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(NSURL(string: "http://twitter.com/Trev_mass")! as URL, options: [:], completionHandler: nil)
         }
     }
     
@@ -184,6 +225,15 @@ class ProfileViewController: UIViewController {
         linkedinView.isHidden = true
         seelessView.isHidden = true
         seemoreView.isHidden = false
-        chatViewController.view.frame = CGRect(x:0, y:400, width:view.bounds.size.width, height:view.bounds.size.height-400)
+        var chatViewFrame: CGRect
+        
+        if self.view.bounds.size.height >= 580 {
+            chatViewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
+        }
+        else {
+            print("small picture")
+            chatViewFrame = CGRect(x:0, y:360, width:self.view.bounds.size.width, height:self.view.bounds.size.height-360)
+        }
+        chatViewController.view.frame = chatViewFrame
     }
 }

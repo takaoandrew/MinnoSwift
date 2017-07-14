@@ -14,7 +14,12 @@ class ConnectsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connects = ["Jim Jones", "Johnny P", "Kim Song", "Tony Alvarez"]
+        
+        connects = ["Trevor Massey", "Johnny P", "Kim Song", "Tony Alvarez"]
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,6 +37,34 @@ class ConnectsTableViewController: UITableViewController {
             cell.imageView?.image = UIImage(named: "profile3.jpg")
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedProgram = "Trevo"
+        
+        // Create an instance of PlayerTableViewController and pass the variable
+        let destinationVC = ProfileViewController()
+        destinationVC.programVar = "Trevo"
+        
+        // Let's assume that the segue name is called playerSegue
+        // This will perform the segue and pre-load the variable for you to use
+        
+        var clicked = ""
+        let connect = connects?[indexPath.row]
+        if let connect = connect {
+            clicked = connect
+        }
+        switch(clicked) {
+        case "Trevor Massey":
+            print("Sucess")
+            destinationVC.performSegue(withIdentifier: "trevorSegue", sender: self)
+            return
+        case "add or remove social media [TRY ME]":
+            self.performSegue(withIdentifier: "AddRemoveSegue", sender: self)
+            return
+        default:
+            return
+        }
     }
     
 

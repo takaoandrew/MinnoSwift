@@ -17,6 +17,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        let bounds: CGRect = UIScreen.main.bounds
+        let screenHeight: CGFloat = bounds.size.height
+        var deviceFamily: String
+        
+        var mainView: UIStoryboard!
+        mainView = UIStoryboard(name: "Main", bundle: nil)
+        let viewController : UIViewController = mainView.instantiateViewController(withIdentifier: "ProfileViewController") as UIViewController
+        self.window!.rootViewController = viewController
+        
+        if screenHeight >= 580  {
+            print("big iPhone")
+            deviceFamily = "iPhoneOriginal"
+            // Load Storyboard with name: iPhone4
+            var mainView: UIStoryboard!
+            mainView = UIStoryboard(name: "Main", bundle: nil)
+            let viewcontroller : UIViewController = mainView.instantiateViewController(withIdentifier: "ProfileViewController") as UIViewController
+            self.window!.rootViewController = viewcontroller
+            
+        } else {
+            print("small iPhone")
+            var mainView: UIStoryboard!
+            mainView = UIStoryboard(name: "5s", bundle: nil)
+            let viewcontroller : UIViewController = mainView.instantiateViewController(withIdentifier: "ProfileViewController") as UIViewController
+            self.window!.rootViewController = viewcontroller
+            
+            if screenHeight == 920 {
+                
+                deviceFamily = "Pad"
+                // Load Storyboard with name: ipad
+                var mainView: UIStoryboard!
+                mainView = UIStoryboard(name: "IpadStoryboard", bundle: nil)
+                let viewcontroller : UIViewController = mainView.instantiateViewController(withIdentifier: "ipad") as UIViewController
+                self.window!.rootViewController = viewcontroller
+            }
+        }
+        
         // Override point for customization after application launch.
         return true
     }

@@ -13,6 +13,7 @@ import Firebase
 
 class ChatViewController: JSQMessagesViewController {
 
+
     let ref = Database.database().reference(withPath: "messages")
 //    private lazy var messageRef: DatabaseReference = self.channelRef!.child("messages")
     private var newMessageRefHandle: DatabaseHandle?
@@ -75,6 +76,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        print("sending!")
         let itemRef = ref.childByAutoId() // 1
         let messageItem = [ // 2
             "senderId": senderId!,

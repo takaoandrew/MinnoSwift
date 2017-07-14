@@ -14,7 +14,13 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         settings = ["privacy settings [TRY ME]", "following", "push notifications", "change number", "terms of use", "data policy", "add or remove social media [TRY ME]"]
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {        
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +49,7 @@ class SettingsTableViewController: UITableViewController {
         switch(clicked) {
             case "privacy settings [TRY ME]":
                 print("Success")
-                self.performSegue(withIdentifier: "PrivacySegue", sender: self)
+                self.performSegue(withIdentifier: "Trevor Profile", sender: self)
                 return
             case "add or remove social media [TRY ME]":
                 print("Sucess")

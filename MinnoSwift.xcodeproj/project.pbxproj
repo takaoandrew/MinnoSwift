@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		52D2080B6B41283A66EC9431 /* Pods_MinnoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90BEDEF5B003BD94417067 /* Pods_MinnoSwift.framework */; };
+		BF15A7761F17149400CFB1B4 /* TrevorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF15A7751F17149300CFB1B4 /* TrevorViewController.swift */; };
 		BF28FCA71F08165F00DF93BB /* ProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28FCA61F08165E00DF93BB /* ProfilePictureViewController.swift */; };
+		BF28FCA91F0EF9D000DF93BB /* 5s.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF28FCA81F0EF9D000DF93BB /* 5s.storyboard */; };
 		BF8ABB401F002DEC007AA085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */; };
 		BF8ABB451F002DEC007AA085 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB431F002DEC007AA085 /* Main.storyboard */; };
 		BF8ABB471F002DEC007AA085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB461F002DEC007AA085 /* Assets.xcassets */; };
@@ -39,7 +41,9 @@
 /* Begin PBXFileReference section */
 		14BBE3F128BD8C20B2012B31 /* Pods-MinnoSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinnoSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinnoSwift/Pods-MinnoSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		200E9AD6EEE7EDAD91877B55 /* Pods-MinnoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinnoSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinnoSwift/Pods-MinnoSwift.release.xcconfig"; sourceTree = "<group>"; };
+		BF15A7751F17149300CFB1B4 /* TrevorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrevorViewController.swift; sourceTree = "<group>"; };
 		BF28FCA61F08165E00DF93BB /* ProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewController.swift; sourceTree = "<group>"; };
+		BF28FCA81F0EF9D000DF93BB /* 5s.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 5s.storyboard; sourceTree = "<group>"; };
 		BF8ABB3C1F002DEC007AA085 /* MinnoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinnoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF8ABB441F002DEC007AA085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				BF8ABB6D1F003A27007AA085 /* Images */,
 				BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */,
 				BF8ABB431F002DEC007AA085 /* Main.storyboard */,
+				BF28FCA81F0EF9D000DF93BB /* 5s.storyboard */,
 				BF8ABB461F002DEC007AA085 /* Assets.xcassets */,
 				BF8ABB481F002DEC007AA085 /* LaunchScreen.storyboard */,
 				BF8ABB4B1F002DED007AA085 /* Info.plist */,
@@ -134,6 +139,7 @@
 				BF8ABB781F00957E007AA085 /* AddRemoveTableViewController.swift */,
 				BF8ABB841F05E6FB007AA085 /* ChatViewController.swift */,
 				BF28FCA61F08165E00DF93BB /* ProfilePictureViewController.swift */,
+				BF15A7751F17149300CFB1B4 /* TrevorViewController.swift */,
 			);
 			path = MinnoSwift;
 			sourceTree = "<group>";
@@ -234,6 +240,7 @@
 				BF8ABB6A1F003A1F007AA085 /* profile3.jpg in Resources */,
 				BF8ABB6B1F003A1F007AA085 /* facebook.png in Resources */,
 				BF8ABB891F0703C7007AA085 /* GoogleService-Info.plist in Resources */,
+				BF28FCA91F0EF9D000DF93BB /* 5s.storyboard in Resources */,
 				BF8ABB451F002DEC007AA085 /* Main.storyboard in Resources */,
 				BF8ABB651F003A1F007AA085 /* avatar.png in Resources */,
 				BF8ABB5F1F003A1F007AA085 /* down.png in Resources */,
@@ -301,6 +308,7 @@
 				BF8ABB771F00949D007AA085 /* PrivacyTableViewController.swift in Sources */,
 				BF8ABB751F006A7D007AA085 /* SettingsTableViewController.swift in Sources */,
 				BF8ABB6F1F003EA7007AA085 /* ProfileViewController.swift in Sources */,
+				BF15A7761F17149400CFB1B4 /* TrevorViewController.swift in Sources */,
 				BF8ABB851F05E6FB007AA085 /* ChatViewController.swift in Sources */,
 				BF8ABB401F002DEC007AA085 /* AppDelegate.swift in Sources */,
 				BF28FCA71F08165F00DF93BB /* ProfilePictureViewController.swift in Sources */,
