@@ -222,8 +222,9 @@
                                 </connections>
                             </button>
                             <button hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-Y3-RSd">
-                                <rect key="frame" x="146" y="503" width="30" height="30"/>
+                                <rect key="frame" x="146" y="493" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.84878690199999995" green="1" blue="0.9829551487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="up"/>
                                 <connections>
                                     <action selector="seelessClicked:" destination="fbi-hG-M5T" eventType="touchUpInside" id="xGn-v1-CKG"/>

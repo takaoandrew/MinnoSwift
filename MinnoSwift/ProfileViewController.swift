@@ -254,7 +254,8 @@ class ProfileViewController: UIViewController {
         linkedinView.isHidden = false
         seelessView.isHidden = false
         seemoreView.isHidden = true
-        chatViewController.view.frame = CGRect(x:0, y:550, width:view.bounds.size.width, height:view.bounds.size.height-550)
+        view.bringSubview(toFront: seelessView)
+//        chatViewController.view.frame = CGRect(x:0, y:550, width:view.bounds.size.width, height:view.bounds.size.height-550)
 
     }
 
@@ -264,15 +265,15 @@ class ProfileViewController: UIViewController {
         linkedinView.isHidden = true
         seelessView.isHidden = true
         seemoreView.isHidden = false
-        var chatViewFrame: CGRect
+//        var chatViewFrame: CGRect
         
-        if self.view.bounds.size.height >= 580 {
-            chatViewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
-        }
-        else {
-            print("small picture")
-            chatViewFrame = CGRect(x:0, y:360, width:self.view.bounds.size.width, height:self.view.bounds.size.height-360)
-        }
-        chatViewController.view.frame = chatViewFrame
+//        if self.view.bounds.size.height >= 580 {
+//            chatViewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
+//        }
+//        else {
+//            print("small picture")
+//            chatViewFrame = CGRect(x:0, y:270, width:self.view.bounds.size.width, height:self.view.bounds.size.height-270)
+//        }
+//        chatViewController.view.frame = chatViewFrame
     }
 }
