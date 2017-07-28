@@ -1,4 +1,5 @@
 PODS:
+  - Appz (2.1.1)
   - Firebase/Auth (4.0.2):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -45,12 +46,14 @@ PODS:
   - JSQSystemSoundPlayer (2.0.1)
 
 DEPENDENCIES:
+  - Appz
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
   - JSQMessagesViewController
 
 SPEC CHECKSUMS:
+  Appz: bacae2b1ba3ea1e663056371488280a878eb7131
   Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
   FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -63,6 +66,6 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
 
-PODFILE CHECKSUM: bc38f285aec46c24d05fbef83fe4f113b4bd3465
+PODFILE CHECKSUM: dd9334fcc097c41a312fe881920d348657ea712b
 
 COCOAPODS: 1.2.1

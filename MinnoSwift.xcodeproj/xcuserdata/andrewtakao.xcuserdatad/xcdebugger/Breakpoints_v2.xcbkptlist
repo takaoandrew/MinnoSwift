@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MinnoSwift/ProfileViewController.swift"
-            timestampString = "521083703.02642"
+            timestampString = "522970310.705623"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "ProfileViewController"
             landmarkType = "3">
             <Locations>

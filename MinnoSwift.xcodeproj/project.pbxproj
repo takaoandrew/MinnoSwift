@@ -11,24 +11,11 @@
 		BF15A7761F17149400CFB1B4 /* TrevorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF15A7751F17149300CFB1B4 /* TrevorViewController.swift */; };
 		BF28FCA71F08165F00DF93BB /* ProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28FCA61F08165E00DF93BB /* ProfilePictureViewController.swift */; };
 		BF28FCA91F0EF9D000DF93BB /* 5s.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF28FCA81F0EF9D000DF93BB /* 5s.storyboard */; };
+		BF3840711F2AA88C00FB758A /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3840701F2AA88C00FB758A /* Connect.swift */; };
 		BF8ABB401F002DEC007AA085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */; };
 		BF8ABB451F002DEC007AA085 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB431F002DEC007AA085 /* Main.storyboard */; };
 		BF8ABB471F002DEC007AA085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB461F002DEC007AA085 /* Assets.xcassets */; };
 		BF8ABB4A1F002DEC007AA085 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB481F002DEC007AA085 /* LaunchScreen.storyboard */; };
-		BF8ABB5F1F003A1F007AA085 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB511F003A1F007AA085 /* down.png */; };
-		BF8ABB601F003A1F007AA085 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB521F003A1F007AA085 /* up.png */; };
-		BF8ABB611F003A1F007AA085 /* minno.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB531F003A1F007AA085 /* minno.jpg */; };
-		BF8ABB621F003A1F007AA085 /* backarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB541F003A1F007AA085 /* backarrow.png */; };
-		BF8ABB631F003A1F007AA085 /* youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB551F003A1F007AA085 /* youtube.png */; };
-		BF8ABB641F003A1F007AA085 /* feed.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB561F003A1F007AA085 /* feed.jpeg */; };
-		BF8ABB651F003A1F007AA085 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB571F003A1F007AA085 /* avatar.png */; };
-		BF8ABB661F003A1F007AA085 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB581F003A1F007AA085 /* settings.png */; };
-		BF8ABB671F003A1F007AA085 /* linkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB591F003A1F007AA085 /* linkedin.png */; };
-		BF8ABB681F003A1F007AA085 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5A1F003A1F007AA085 /* twitter.png */; };
-		BF8ABB691F003A1F007AA085 /* instagram3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5B1F003A1F007AA085 /* instagram3.jpg */; };
-		BF8ABB6A1F003A1F007AA085 /* profile3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5C1F003A1F007AA085 /* profile3.jpg */; };
-		BF8ABB6B1F003A1F007AA085 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5D1F003A1F007AA085 /* facebook.png */; };
-		BF8ABB6C1F003A1F007AA085 /* snapchat.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB5E1F003A1F007AA085 /* snapchat.png */; };
 		BF8ABB6F1F003EA7007AA085 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB6E1F003EA7007AA085 /* ProfileViewController.swift */; };
 		BF8ABB731F004672007AA085 /* ConnectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB721F004672007AA085 /* ConnectsTableViewController.swift */; };
 		BF8ABB751F006A7D007AA085 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ABB741F006A7D007AA085 /* SettingsTableViewController.swift */; };
@@ -44,33 +31,20 @@
 		BF15A7751F17149300CFB1B4 /* TrevorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrevorViewController.swift; sourceTree = "<group>"; };
 		BF28FCA61F08165E00DF93BB /* ProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewController.swift; sourceTree = "<group>"; };
 		BF28FCA81F0EF9D000DF93BB /* 5s.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 5s.storyboard; sourceTree = "<group>"; };
+		BF3840701F2AA88C00FB758A /* Connect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
 		BF8ABB3C1F002DEC007AA085 /* MinnoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinnoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF8ABB441F002DEC007AA085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF8ABB461F002DEC007AA085 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF8ABB491F002DEC007AA085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF8ABB4B1F002DED007AA085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF8ABB511F003A1F007AA085 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = down.png; path = ../../../../Downloads/down.png; sourceTree = "<group>"; };
-		BF8ABB521F003A1F007AA085 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = up.png; path = ../../../../Downloads/up.png; sourceTree = "<group>"; };
-		BF8ABB531F003A1F007AA085 /* minno.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = minno.jpg; path = ../../minno.jpg; sourceTree = "<group>"; };
-		BF8ABB541F003A1F007AA085 /* backarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backarrow.png; path = ../../../../Downloads/backarrow.png; sourceTree = "<group>"; };
-		BF8ABB551F003A1F007AA085 /* youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = youtube.png; path = ../../Minno/app/src/main/res/drawable/youtube.png; sourceTree = "<group>"; };
-		BF8ABB561F003A1F007AA085 /* feed.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = feed.jpeg; path = ../../TestApp/TestApp/feed.jpeg; sourceTree = "<group>"; };
-		BF8ABB571F003A1F007AA085 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = ../../TestApp/TestApp/avatar.png; sourceTree = "<group>"; };
-		BF8ABB581F003A1F007AA085 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = ../../TestApp/TestApp/settings.png; sourceTree = "<group>"; };
-		BF8ABB591F003A1F007AA085 /* linkedin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = linkedin.png; path = ../../TestApp/TestApp/linkedin.png; sourceTree = "<group>"; };
-		BF8ABB5A1F003A1F007AA085 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitter.png; path = ../../TestApp/TestApp/twitter.png; sourceTree = "<group>"; };
-		BF8ABB5B1F003A1F007AA085 /* instagram3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = instagram3.jpg; path = ../../TestApp/TestApp/instagram3.jpg; sourceTree = "<group>"; };
-		BF8ABB5C1F003A1F007AA085 /* profile3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = profile3.jpg; path = ../../Minno/app/src/main/res/drawable/profile3.jpg; sourceTree = "<group>"; };
-		BF8ABB5D1F003A1F007AA085 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../Minno/app/src/main/res/drawable/facebook.png; sourceTree = "<group>"; };
-		BF8ABB5E1F003A1F007AA085 /* snapchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snapchat.png; path = ../../Minno/app/src/main/res/drawable/snapchat.png; sourceTree = "<group>"; };
 		BF8ABB6E1F003EA7007AA085 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BF8ABB721F004672007AA085 /* ConnectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectsTableViewController.swift; sourceTree = "<group>"; };
 		BF8ABB741F006A7D007AA085 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		BF8ABB761F00949D007AA085 /* PrivacyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyTableViewController.swift; sourceTree = "<group>"; };
 		BF8ABB781F00957E007AA085 /* AddRemoveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRemoveTableViewController.swift; sourceTree = "<group>"; };
 		BF8ABB841F05E6FB007AA085 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		BF8ABB881F0703C7007AA085 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BF8ABB881F0703C7007AA085 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF90BEDEF5B003BD94417067 /* Pods_MinnoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinnoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				BF8ABB881F0703C7007AA085 /* GoogleService-Info.plist */,
-				BF8ABB6D1F003A27007AA085 /* Images */,
 				BF8ABB3F1F002DEC007AA085 /* AppDelegate.swift */,
 				BF8ABB431F002DEC007AA085 /* Main.storyboard */,
 				BF28FCA81F0EF9D000DF93BB /* 5s.storyboard */,
@@ -140,29 +113,9 @@
 				BF8ABB841F05E6FB007AA085 /* ChatViewController.swift */,
 				BF28FCA61F08165E00DF93BB /* ProfilePictureViewController.swift */,
 				BF15A7751F17149300CFB1B4 /* TrevorViewController.swift */,
+				BF3840701F2AA88C00FB758A /* Connect.swift */,
 			);
 			path = MinnoSwift;
-			sourceTree = "<group>";
-		};
-		BF8ABB6D1F003A27007AA085 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				BF8ABB511F003A1F007AA085 /* down.png */,
-				BF8ABB521F003A1F007AA085 /* up.png */,
-				BF8ABB531F003A1F007AA085 /* minno.jpg */,
-				BF8ABB541F003A1F007AA085 /* backarrow.png */,
-				BF8ABB551F003A1F007AA085 /* youtube.png */,
-				BF8ABB561F003A1F007AA085 /* feed.jpeg */,
-				BF8ABB571F003A1F007AA085 /* avatar.png */,
-				BF8ABB581F003A1F007AA085 /* settings.png */,
-				BF8ABB591F003A1F007AA085 /* linkedin.png */,
-				BF8ABB5A1F003A1F007AA085 /* twitter.png */,
-				BF8ABB5B1F003A1F007AA085 /* instagram3.jpg */,
-				BF8ABB5C1F003A1F007AA085 /* profile3.jpg */,
-				BF8ABB5D1F003A1F007AA085 /* facebook.png */,
-				BF8ABB5E1F003A1F007AA085 /* snapchat.png */,
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,25 +181,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF8ABB601F003A1F007AA085 /* up.png in Resources */,
 				BF8ABB4A1F002DEC007AA085 /* LaunchScreen.storyboard in Resources */,
 				BF8ABB471F002DEC007AA085 /* Assets.xcassets in Resources */,
-				BF8ABB661F003A1F007AA085 /* settings.png in Resources */,
-				BF8ABB681F003A1F007AA085 /* twitter.png in Resources */,
-				BF8ABB641F003A1F007AA085 /* feed.jpeg in Resources */,
-				BF8ABB691F003A1F007AA085 /* instagram3.jpg in Resources */,
-				BF8ABB6C1F003A1F007AA085 /* snapchat.png in Resources */,
-				BF8ABB631F003A1F007AA085 /* youtube.png in Resources */,
-				BF8ABB6A1F003A1F007AA085 /* profile3.jpg in Resources */,
-				BF8ABB6B1F003A1F007AA085 /* facebook.png in Resources */,
 				BF8ABB891F0703C7007AA085 /* GoogleService-Info.plist in Resources */,
 				BF28FCA91F0EF9D000DF93BB /* 5s.storyboard in Resources */,
 				BF8ABB451F002DEC007AA085 /* Main.storyboard in Resources */,
-				BF8ABB651F003A1F007AA085 /* avatar.png in Resources */,
-				BF8ABB5F1F003A1F007AA085 /* down.png in Resources */,
-				BF8ABB671F003A1F007AA085 /* linkedin.png in Resources */,
-				BF8ABB621F003A1F007AA085 /* backarrow.png in Resources */,
-				BF8ABB611F003A1F007AA085 /* minno.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +248,7 @@
 				BF8ABB751F006A7D007AA085 /* SettingsTableViewController.swift in Sources */,
 				BF8ABB6F1F003EA7007AA085 /* ProfileViewController.swift in Sources */,
 				BF15A7761F17149400CFB1B4 /* TrevorViewController.swift in Sources */,
+				BF3840711F2AA88C00FB758A /* Connect.swift in Sources */,
 				BF8ABB851F05E6FB007AA085 /* ChatViewController.swift in Sources */,
 				BF8ABB401F002DEC007AA085 /* AppDelegate.swift in Sources */,
 				BF28FCA71F08165F00DF93BB /* ProfilePictureViewController.swift in Sources */,

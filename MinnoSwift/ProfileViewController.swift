@@ -9,9 +9,12 @@
 import UIKit
 import Firebase
 import JSQMessagesViewController
+import Appz
+
 
 class ProfileViewController: UIViewController {
     
+    let apps = UIApplication.shared
     
     var programVar : String?
 
@@ -60,7 +63,7 @@ class ProfileViewController: UIViewController {
         }
         else {
             print("small picture")
-            chatViewFrame = CGRect(x:0, y:360, width:self.view.bounds.size.width, height:self.view.bounds.size.height-360)
+            chatViewFrame = CGRect(x:0, y:270, width:self.view.bounds.size.width, height:self.view.bounds.size.height-270)
         }
         
         self.addViewControllerAsChildViewController(childViewController: viewController, cGRect: chatViewFrame)
@@ -86,22 +89,31 @@ class ProfileViewController: UIViewController {
         
         let linkedinTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.linkedinTapped(sender:)))
         linkedinView.addGestureRecognizer(linkedinTap)
+    
+        chatViewController.view.isHidden = false
+        profilePictureViewController.view.isHidden = false
         
         let dismissKeyboardTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.dismissKeyboard))
         
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        dismissKeyboardTap.cancelsTouchesInView = false
-        
         view.addGestureRecognizer(dismissKeyboardTap)
         
-        chatViewController.view.isHidden = false
-        profilePictureViewController.view.isHidden = false
+//        chatViewController.view.isHidden = false
+//        profilePictureViewController.view.isHidden = false
 
         connectView.titleLabel?.textAlignment = NSTextAlignment.center
         friendView.titleLabel?.textAlignment = NSTextAlignment.center
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        
+        view.bringSubview(toFront: facebookView)
+        view.bringSubview(toFront: instagramView)
+        view.bringSubview(toFront: snapchatView)
+        view.bringSubview(toFront: twitterView)
+        view.bringSubview(toFront: linkedinView)
+        view.bringSubview(toFront: seemoreView)
+
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -111,6 +123,12 @@ class ProfileViewController: UIViewController {
         snapchatView.isUserInteractionEnabled = false
         twitterView.isUserInteractionEnabled = false
         linkedinView.isUserInteractionEnabled = false
+        view.sendSubview(toBack: facebookView)
+        view.sendSubview(toBack: instagramView)
+        view.sendSubview(toBack: snapchatView)
+        view.sendSubview(toBack: twitterView)
+        view.sendSubview(toBack: linkedinView)
+        view.sendSubview(toBack: seemoreView)
         
     }
     
@@ -130,6 +148,12 @@ class ProfileViewController: UIViewController {
         snapchatView.isUserInteractionEnabled = true
         twitterView.isUserInteractionEnabled = true
         linkedinView.isUserInteractionEnabled = true
+        view.bringSubview(toFront: facebookView)
+        view.bringSubview(toFront: instagramView)
+        view.bringSubview(toFront: snapchatView)
+        view.bringSubview(toFront: twitterView)
+        view.bringSubview(toFront: linkedinView)
+        view.bringSubview(toFront: seemoreView)
     }
 
     
@@ -148,59 +172,74 @@ class ProfileViewController: UIViewController {
     }
     
     func facebookTapped(sender:UITapGestureRecognizer) {
-        let facebookHooks = "fb://profile/661299413"
-        let facebookUrl = NSURL(string: facebookHooks)
-        if UIApplication.shared.canOpenURL(facebookUrl! as URL)
-        {
-            UIApplication.shared.open(facebookUrl! as URL, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.open(NSURL(string: "http://facebook.com/trevor.massey.35")! as URL, options: [:], completionHandler: nil)
-        }
+//        let facebookHooks = "fb://profile/661299413"
+//        let facebookUrl = NSURL(string: facebookHooks)
+//        if UIApplication.shared.canOpenURL(facebookUrl! as URL)
+//        {
+//            UIApplication.shared.open(facebookUrl! as URL, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.open(NSURL(string: "http://facebook.com/trevor.massey.35")! as URL, options: [:], completionHandler: nil)
+//        }
+        apps.open(Applications.Facebook(), action: .open)
+//        if let url = URL(string: "fb://profile/661299413") {
+//            if #available(iOS 10, *) {
+//                UIApplication.shared.open(url, options: [:],completionHandler: { (success) in
+//                    print("Open fb://profile/661299413: \(success)")
+//                })
+//            } else {
+//                let success = UIApplication.shared.openURL(url)
+//                print("Open fb://profile/661299413: \(success)")
+//            }
+//        }
 
     }
     
     func instagramTapped(sender:UITapGestureRecognizer) {
-        let instagramHooks = "instagram://user?username=chocotako1"
-        let instagramUrl = NSURL(string: instagramHooks)
-        if UIApplication.shared.canOpenURL(instagramUrl! as URL)
-        {
-            UIApplication.shared.open(instagramUrl! as URL, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.open(NSURL(string: "http://instagram.com/trev_mass")! as URL, options: [:], completionHandler: nil)
-        }
+//        let instagramHooks = "instagram://user?username=chocotako1"
+//        let instagramUrl = NSURL(string: instagramHooks)
+//        if UIApplication.shared.canOpenURL(instagramUrl! as URL)
+//        {
+//            UIApplication.shared.open(instagramUrl! as URL, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.open(NSURL(string: "http://instagram.com/trev_mass")! as URL, options: [:], completionHandler: nil)
+//        }
+        apps.open(Applications.Instagram(), action: .open)
     }
     
     func snapchatTapped(sender:UITapGestureRecognizer) {
-        let snapchatHooks = "snapchat://add/chocotako"
-        let snapchatUrl = NSURL(string: snapchatHooks)
-        if UIApplication.shared.canOpenURL(snapchatUrl! as URL)
-        {
-            UIApplication.shared.open(snapchatUrl! as URL, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.open(NSURL(string: "http://snapchat.com/tmass9")! as URL, options: [:], completionHandler: nil)
-        }
+//        let snapchatHooks = "snapchat://add/chocotako"
+//        let snapchatUrl = NSURL(string: snapchatHooks)
+//        if UIApplication.shared.canOpenURL(snapchatUrl! as URL)
+//        {
+//            UIApplication.shared.open(snapchatUrl! as URL, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.open(NSURL(string: "http://snapchat.com/tmass9")! as URL, options: [:], completionHandler: nil)
+//        }
+        apps.open(Applications.Snapchat(), action: .open)
     }
     
     func twitterTapped(sender:UITapGestureRecognizer) {
-        let twitterHooks = "twitter://twitterusrnamehere"
-        let twitterUrl = NSURL(string: twitterHooks)
-        if UIApplication.shared.canOpenURL(twitterUrl! as URL)
-        {
-            UIApplication.shared.open(twitterUrl! as URL, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.open(NSURL(string: "http://twitter.com/Trev_mass")! as URL, options: [:], completionHandler: nil)
-        }
+//        let twitterHooks = "twitter://twitterusrnamehere"
+//        let twitterUrl = NSURL(string: twitterHooks)
+//        if UIApplication.shared.canOpenURL(twitterUrl! as URL)
+//        {
+//            UIApplication.shared.open(twitterUrl! as URL, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.open(NSURL(string: "http://twitter.com/Trev_mass")! as URL, options: [:], completionHandler: nil)
+//        }
+        apps.open(Applications.Photos(), action: .open)
     }
     
     func linkedinTapped(sender:UITapGestureRecognizer) {
-        let linkedinHooks = "linkedin://add/andrew-takao"
-        let linkedinUrl = NSURL(string: linkedinHooks)
-        if UIApplication.shared.canOpenURL(linkedinUrl! as URL)
-        {
-            UIApplication.shared.open(linkedinUrl! as URL, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.open(NSURL(string: "http://linkedin.com/")! as URL, options: [:], completionHandler: nil)
-        }
+//        let linkedinHooks = "linkedin://add/andrew-takao"
+//        let linkedinUrl = NSURL(string: linkedinHooks)
+//        if UIApplication.shared.canOpenURL(linkedinUrl! as URL)
+//        {
+//            UIApplication.shared.open(linkedinUrl! as URL, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.open(NSURL(string: "http://linkedin.com/")! as URL, options: [:], completionHandler: nil)
+//        }
+        apps.open(Applications.Linkedin(), action: .open)
     }
     
     

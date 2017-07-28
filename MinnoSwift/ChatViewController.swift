@@ -76,7 +76,6 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        print("sending!")
         let itemRef = ref.childByAutoId() // 1
         let messageItem = [ // 2
             "senderId": senderId!,
@@ -89,6 +88,7 @@ class ChatViewController: JSQMessagesViewController {
         JSQSystemSoundPlayer.jsq_playMessageSentSound() // 4
 //
         finishSendingMessage() // 5
+        
     }
 
     private func observeMessages() {
