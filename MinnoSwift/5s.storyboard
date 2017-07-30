@@ -221,8 +221,8 @@
                                     <action selector="seemoreClicked:" destination="fbi-hG-M5T" eventType="touchUpInside" id="s0q-hR-rxP"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-Y3-RSd">
-                                <rect key="frame" x="146" y="493" width="30" height="30"/>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-Y3-RSd">
+                                <rect key="frame" x="147" y="493" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.84878690199999995" green="1" blue="0.9829551487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="up"/>
@@ -272,13 +272,18 @@
                         <outlet property="contactView" destination="jh0-cp-yEZ" id="Tfm-UQ-wAJ"/>
                         <outlet property="echoView" destination="VwB-sd-Inl" id="6ho-Ha-vm6"/>
                         <outlet property="facebookView" destination="V69-3V-u3T" id="Swh-pW-2gM"/>
+                        <outlet property="facebookYConstraint" destination="V69-3V-u3T" id="HGW-tA-OZh"/>
                         <outlet property="friendView" destination="sP6-zd-95N" id="WRy-9Y-pgg"/>
                         <outlet property="instagramView" destination="Xo0-TS-IMo" id="82R-qp-KJL"/>
+                        <outlet property="instagramYConstraint" destination="Xo0-TS-IMo" id="MC8-dD-GzG"/>
                         <outlet property="linkedinView" destination="Y0Y-hh-7d2" id="hDA-gs-xNE"/>
+                        <outlet property="linkedinYConstraint" destination="Y0Y-hh-7d2" id="Ema-r2-VMn"/>
                         <outlet property="seelessView" destination="9rl-Y3-RSd" id="exy-2I-L9v"/>
                         <outlet property="seemoreView" destination="PaN-fU-EuS" id="jeo-o1-h28"/>
                         <outlet property="snapchatView" destination="HBq-a7-Vw3" id="B66-o4-643"/>
+                        <outlet property="snapchatYConstraint" destination="HBq-a7-Vw3" id="Wnb-2c-ixY"/>
                         <outlet property="twitterView" destination="HTb-TV-QBt" id="rOC-lx-fkI"/>
+                        <outlet property="twitterYConstraint" destination="HTb-TV-QBt" id="SOB-aq-yBQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYK-BV-YaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -376,12 +381,28 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddRemoveCell" id="FUK-Al-uik">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddRemoveCell" textLabel="pPK-hB-bod" detailTextLabel="zXU-Ia-HBb" style="IBUITableViewCellStyleValue1" id="FUK-Al-uik">
                                 <rect key="frame" x="0.0" y="100" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FUK-Al-uik" id="hbR-sL-iFe">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pPK-hB-bod">
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zXU-Ia-HBb">
+                                            <rect key="frame" x="261" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

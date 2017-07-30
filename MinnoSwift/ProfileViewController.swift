@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     let apps = UIApplication.shared
     
     var programVar : String?
+    
+//    var addRemoveTableViewController: AddRemoveTableViewController = AddRemoveTableViewController
 
     @IBOutlet weak var contactView: UIButton!
     @IBOutlet weak var echoView: UIButton!
@@ -32,8 +34,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var seelessView: UIButton!
     @IBOutlet weak var chatContainerView: UIView!
     @IBOutlet weak var profilePictureContainerView: UIView!
-    
-    
+    @IBOutlet weak var facebookYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var instagramYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var snapchatYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var twitterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var linkedinYConstraint: NSLayoutConstraint!
     
     lazy var profilePictureViewController: ProfilePictureViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -73,7 +78,6 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         
         let facebookTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.facebookTapped(sender:)))
         facebookView.addGestureRecognizer(facebookTap)
@@ -107,12 +111,6 @@ class ProfileViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         
-        view.bringSubview(toFront: facebookView)
-        view.bringSubview(toFront: instagramView)
-        view.bringSubview(toFront: snapchatView)
-        view.bringSubview(toFront: twitterView)
-        view.bringSubview(toFront: linkedinView)
-        view.bringSubview(toFront: seemoreView)
 
     }
     
@@ -155,10 +153,90 @@ class ProfileViewController: UIViewController {
         view.bringSubview(toFront: linkedinView)
         view.bringSubview(toFront: seemoreView)
     }
+    
+    func bumpUp(view: UIView)  {
+        view.frame.origin.y -= 50
+    }
+    
+    func bumpDown(view: UIView)  {
+        view.frame.origin.y += 50
+    }
 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let ref = Database.database().reference()
+        ref.child("add_remove_settings").observeSingleEvent(of: .value, with: { snapshot in
+            let settingsData = snapshot.value as! Dictionary<String, Dictionary<String, String>>
+            for (key, element) in settingsData {
+                if key == "facebook" {
+                    if  element["show"] == "hide" {
+                        self.facebookView.isHidden = true
+                        self.bumpUp(view: self.instagramView)
+                        self.bumpUp(view: self.seemoreView)
+                        self.bumpUp(view: self.snapchatView)
+                        self.bumpUp(view: self.twitterView)
+                        self.bumpUp(view: self.linkedinView)
+                        self.bumpUp(view: self.seelessView)
+                    }
+                    else {
+                        self.facebookView.isHidden = false
+                    }
+                }
+                else if key == "instagram" {
+                    if  element["show"] == "hide" {
+                        self.instagramView.isHidden = true
+                        self.bumpUp(view: self.seemoreView)
+                        self.bumpUp(view: self.snapchatView)
+                        self.bumpUp(view: self.twitterView)
+                        self.bumpUp(view: self.linkedinView)
+                        self.bumpUp(view: self.seelessView)
+                    }
+                    else {
+                        self.instagramView.isHidden = false
+                    }
+                }
+                else if key == "snapchat" {
+                    if  element["show"] == "hide" {
+                        self.snapchatView.isHidden = true
+                        self.bumpUp(view: self.twitterView)
+                        self.bumpUp(view: self.linkedinView)
+                        self.bumpUp(view: self.seelessView)
+                    }
+                    else {
+                        self.snapchatView.isHidden = false
+                    }
+                }
+                else if key == "twitter" {
+                    if  element["show"] == "hide" {
+                        self.twitterView.isHidden = true
+                        self.bumpUp(view: self.linkedinView)
+                        self.bumpUp(view: self.seelessView)
+                    }
+                    else {
+                        self.twitterView.isHidden = false
+                    }
+                }
+                else if key == "linkedin" {
+                    if  element["show"] == "hide" {
+                        self.linkedinView.isHidden = true
+                        self.bumpUp(view: self.seelessView)
+                    }
+                    else {
+                        self.linkedinView.isHidden = false
+                    }
+                }
+            }
+        })
+        view.bringSubview(toFront: facebookView)
+        view.bringSubview(toFront: instagramView)
+        view.bringSubview(toFront: snapchatView)
+        view.bringSubview(toFront: twitterView)
+        view.bringSubview(toFront: linkedinView)
+        view.bringSubview(toFront: seemoreView)
+        
+        seelessClicked((Any).self)
+    
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -167,78 +245,77 @@ class ProfileViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        let ref = Database.database().reference()
+        ref.child("add_remove_settings").observeSingleEvent(of: .value, with: { snapshot in
+            let settingsData = snapshot.value as! Dictionary<String, Dictionary<String, String>>
+            for (key, element) in settingsData {
+                if key == "facebook" {
+                    if  element["show"] == "hide" {
+                        self.bumpDown(view: self.instagramView)
+                        self.bumpDown(view: self.seemoreView)
+                        self.bumpDown(view: self.snapchatView)
+                        self.bumpDown(view: self.twitterView)
+                        self.bumpDown(view: self.linkedinView)
+                        self.bumpDown(view: self.seelessView)
+                    }
+                }
+                else if key == "instagram" {
+                    if  element["show"] == "hide" {
+                        self.bumpDown(view: self.seemoreView)
+                        self.bumpDown(view: self.snapchatView)
+                        self.bumpDown(view: self.twitterView)
+                        self.bumpDown(view: self.linkedinView)
+                        self.bumpDown(view: self.seelessView)
+                    }
+                }
+                else if key == "snapchat" {
+                    if  element["show"] == "hide" {
+                        self.bumpDown(view: self.twitterView)
+                        self.bumpDown(view: self.linkedinView)
+                        self.bumpDown(view: self.seelessView)
+                    }
+                }
+                else if key == "twitter" {
+                    if  element["show"] == "hide" {
+                        self.bumpDown(view: self.linkedinView)
+                        self.bumpDown(view: self.seelessView)
+                    }
+                }
+                else if key == "linkedin" {
+                    if  element["show"] == "hide" {
+                        self.bumpDown(view: self.seelessView)
+                    }
+                }
+            }
+        })
+
+        
         // Show the navigation bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func facebookTapped(sender:UITapGestureRecognizer) {
 //        let facebookHooks = "fb://profile/661299413"
-//        let facebookUrl = NSURL(string: facebookHooks)
-//        if UIApplication.shared.canOpenURL(facebookUrl! as URL)
-//        {
-//            UIApplication.shared.open(facebookUrl! as URL, options: [:], completionHandler: nil)
-//        } else {
-//            UIApplication.shared.open(NSURL(string: "http://facebook.com/trevor.massey.35")! as URL, options: [:], completionHandler: nil)
-//        }
-        apps.open(Applications.Facebook(), action: .open)
-//        if let url = URL(string: "fb://profile/661299413") {
-//            if #available(iOS 10, *) {
-//                UIApplication.shared.open(url, options: [:],completionHandler: { (success) in
-//                    print("Open fb://profile/661299413: \(success)")
-//                })
-//            } else {
-//                let success = UIApplication.shared.openURL(url)
-//                print("Open fb://profile/661299413: \(success)")
-//            }
-//        }
-
+        apps.open(Applications.Facebook(), action: .page("661299413"))
     }
     
     func instagramTapped(sender:UITapGestureRecognizer) {
 //        let instagramHooks = "instagram://user?username=chocotako1"
-//        let instagramUrl = NSURL(string: instagramHooks)
-//        if UIApplication.shared.canOpenURL(instagramUrl! as URL)
-//        {
-//            UIApplication.shared.open(instagramUrl! as URL, options: [:], completionHandler: nil)
-//        } else {
-//            UIApplication.shared.open(NSURL(string: "http://instagram.com/trev_mass")! as URL, options: [:], completionHandler: nil)
-//        }
-        apps.open(Applications.Instagram(), action: .open)
+        apps.open(Applications.Instagram(), action: .username(username: "chocotako1"))
     }
     
     func snapchatTapped(sender:UITapGestureRecognizer) {
-//        let snapchatHooks = "snapchat://add/chocotako"
-//        let snapchatUrl = NSURL(string: snapchatHooks)
-//        if UIApplication.shared.canOpenURL(snapchatUrl! as URL)
-//        {
-//            UIApplication.shared.open(snapchatUrl! as URL, options: [:], completionHandler: nil)
-//        } else {
-//            UIApplication.shared.open(NSURL(string: "http://snapchat.com/tmass9")! as URL, options: [:], completionHandler: nil)
-//        }
-        apps.open(Applications.Snapchat(), action: .open)
+//        let snapchatHooks = "snapchat://add/chocotako"\
+        //tmass9"
+        apps.open(Applications.Snapchat(), action: .add(username: "tmass9"))
     }
     
     func twitterTapped(sender:UITapGestureRecognizer) {
-//        let twitterHooks = "twitter://twitterusrnamehere"
-//        let twitterUrl = NSURL(string: twitterHooks)
-//        if UIApplication.shared.canOpenURL(twitterUrl! as URL)
-//        {
-//            UIApplication.shared.open(twitterUrl! as URL, options: [:], completionHandler: nil)
-//        } else {
-//            UIApplication.shared.open(NSURL(string: "http://twitter.com/Trev_mass")! as URL, options: [:], completionHandler: nil)
-//        }
-        apps.open(Applications.Photos(), action: .open)
+        apps.open(Applications.Twitter(), action: .userId("Trev_mass"))
     }
     
     func linkedinTapped(sender:UITapGestureRecognizer) {
 //        let linkedinHooks = "linkedin://add/andrew-takao"
-//        let linkedinUrl = NSURL(string: linkedinHooks)
-//        if UIApplication.shared.canOpenURL(linkedinUrl! as URL)
-//        {
-//            UIApplication.shared.open(linkedinUrl! as URL, options: [:], completionHandler: nil)
-//        } else {
-//            UIApplication.shared.open(NSURL(string: "http://linkedin.com/")! as URL, options: [:], completionHandler: nil)
-//        }
         apps.open(Applications.Linkedin(), action: .open)
     }
     
@@ -249,31 +326,28 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func seemoreClicked(_ sender: Any) {
-        snapchatView.isHidden = false
-        twitterView.isHidden = false
-        linkedinView.isHidden = false
-        seelessView.isHidden = false
-        seemoreView.isHidden = true
+        view.bringSubview(toFront: snapchatView)
+        view.bringSubview(toFront: twitterView)
+        view.bringSubview(toFront: linkedinView)
+        view.sendSubview(toBack: seemoreView)
+//        snapchatView.isHidden = false
+//        twitterView.isHidden = false
+//        linkedinView.isHidden = false
+//        seelessView.isHidden = false
+//        seemoreView.isHidden = true
         view.bringSubview(toFront: seelessView)
-//        chatViewController.view.frame = CGRect(x:0, y:550, width:view.bounds.size.width, height:view.bounds.size.height-550)
-
     }
 
     @IBAction func seelessClicked(_ sender: Any) {
-        snapchatView.isHidden = true
-        twitterView.isHidden = true
-        linkedinView.isHidden = true
-        seelessView.isHidden = true
-        seemoreView.isHidden = false
-//        var chatViewFrame: CGRect
-        
-//        if self.view.bounds.size.height >= 580 {
-//            chatViewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
-//        }
-//        else {
-//            print("small picture")
-//            chatViewFrame = CGRect(x:0, y:270, width:self.view.bounds.size.width, height:self.view.bounds.size.height-270)
-//        }
-//        chatViewController.view.frame = chatViewFrame
+        view.sendSubview(toBack: snapchatView)
+        view.sendSubview(toBack: twitterView)
+        view.sendSubview(toBack: linkedinView)
+        view.sendSubview(toBack: seelessView)
+        view.bringSubview(toFront: seemoreView)
+//        snapchatView.isHidden = true
+//        twitterView.isHidden = true
+//        linkedinView.isHidden = true
+//        seelessView.isHidden = true
+//        seemoreView.isHidden = false
     }
 }

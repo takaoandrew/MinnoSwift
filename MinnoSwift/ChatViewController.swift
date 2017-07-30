@@ -15,7 +15,6 @@ class ChatViewController: JSQMessagesViewController {
 
 
     let ref = Database.database().reference(withPath: "messages")
-//    private lazy var messageRef: DatabaseReference = self.channelRef!.child("messages")
     private var newMessageRefHandle: DatabaseHandle?
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
