@@ -51,5 +51,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinnoSwift/ProfileViewController.swift"
+            timestampString = "523405621.140547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "facebookTapped(sender:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MinnoSwift.ProfileViewController.facebookTapped (sender : __ObjC.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "MinnoSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewtakao/Desktop/MinnoSwift/MinnoSwift/ProfileViewController.swift"
+                  timestampString = "523406095.287361"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "298"
+                  endingLineNumber = "298"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MinnoSwift.ProfileViewController.(facebookTapped (sender : __ObjC.UITapGestureRecognizer) -&gt; ()).(implicit closure #1)"
+                  moduleName = "MinnoSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewtakao/Desktop/MinnoSwift/MinnoSwift/ProfileViewController.swift"
+                  timestampString = "523406095.289583"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "298"
+                  endingLineNumber = "298"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -17,9 +17,16 @@ class ProfileViewController: UIViewController {
     let apps = UIApplication.shared
     
     var programVar : String?
+    var profileInfo : Connect?
     
-//    var addRemoveTableViewController: AddRemoveTableViewController = AddRemoveTableViewController
-
+    //    var addRemoveTableViewController: AddRemoveTableViewController = AddRemoveTableViewController
+    
+    @IBOutlet weak var nameView: UILabel!
+    @IBOutlet weak var facebookNameView: UILabel!
+    @IBOutlet weak var instagramNameView: UILabel!
+    @IBOutlet weak var snapchatNameView: UILabel!
+    @IBOutlet weak var twitterNameView: UILabel!
+    @IBOutlet weak var linkedinNameView: UILabel!
     @IBOutlet weak var contactView: UIButton!
     @IBOutlet weak var echoView: UIButton!
     @IBOutlet weak var contactInformation: UILabel!
@@ -67,7 +74,7 @@ class ProfileViewController: UIViewController {
             chatViewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
         }
         else {
-            print("small picture")
+            //            print("small picture")
             chatViewFrame = CGRect(x:0, y:270, width:self.view.bounds.size.width, height:self.view.bounds.size.height-270)
         }
         
@@ -78,6 +85,14 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameView.text = profileInfo?.name ?? "Andrew Takao"
+        facebookNameView.text = profileInfo?.facebookName ?? "takaoandrew"
+        instagramNameView.text = profileInfo?.instagramName ?? "andrewtakao"
+        snapchatNameView.text = profileInfo?.snapchatName ?? "chocotako"
+        twitterNameView.text = profileInfo?.twitterName ?? "tweetakao"
+        linkedinNameView.text = profileInfo?.linkedinName ?? "Andrew Takao"
+        
         
         let facebookTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.facebookTapped(sender:)))
         facebookView.addGestureRecognizer(facebookTap)
@@ -93,7 +108,7 @@ class ProfileViewController: UIViewController {
         
         let linkedinTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.linkedinTapped(sender:)))
         linkedinView.addGestureRecognizer(linkedinTap)
-    
+        
         chatViewController.view.isHidden = false
         profilePictureViewController.view.isHidden = false
         
@@ -101,17 +116,10 @@ class ProfileViewController: UIViewController {
         
         view.addGestureRecognizer(dismissKeyboardTap)
         
-//        chatViewController.view.isHidden = false
-//        profilePictureViewController.view.isHidden = false
-
         connectView.titleLabel?.textAlignment = NSTextAlignment.center
         friendView.titleLabel?.textAlignment = NSTextAlignment.center
         
-        
         NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        
-
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -121,13 +129,7 @@ class ProfileViewController: UIViewController {
         snapchatView.isUserInteractionEnabled = false
         twitterView.isUserInteractionEnabled = false
         linkedinView.isUserInteractionEnabled = false
-        view.sendSubview(toBack: facebookView)
-        view.sendSubview(toBack: instagramView)
-        view.sendSubview(toBack: snapchatView)
-        view.sendSubview(toBack: twitterView)
-        view.sendSubview(toBack: linkedinView)
-        view.sendSubview(toBack: seemoreView)
-        
+        view.bringSubview(toFront: chatViewController.view)
     }
     
     
@@ -146,12 +148,8 @@ class ProfileViewController: UIViewController {
         snapchatView.isUserInteractionEnabled = true
         twitterView.isUserInteractionEnabled = true
         linkedinView.isUserInteractionEnabled = true
-        view.bringSubview(toFront: facebookView)
-        view.bringSubview(toFront: instagramView)
-        view.bringSubview(toFront: snapchatView)
-        view.bringSubview(toFront: twitterView)
-        view.bringSubview(toFront: linkedinView)
-        view.bringSubview(toFront: seemoreView)
+        view.sendSubview(toBack: chatViewController.view)
+        seelessClicked((Any).self)
     }
     
     func bumpUp(view: UIView)  {
@@ -161,7 +159,7 @@ class ProfileViewController: UIViewController {
     func bumpDown(view: UIView)  {
         view.frame.origin.y += 50
     }
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -236,7 +234,7 @@ class ProfileViewController: UIViewController {
         view.bringSubview(toFront: seemoreView)
         
         seelessClicked((Any).self)
-    
+        
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -288,35 +286,71 @@ class ProfileViewController: UIViewController {
                 }
             }
         })
-
+        
         
         // Show the navigation bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func facebookTapped(sender:UITapGestureRecognizer) {
-//        let facebookHooks = "fb://profile/661299413"
-        apps.open(Applications.Facebook(), action: .page("661299413"))
+        //        let facebookHooks = "fb://profile/661299413"
+        //        apps.open(Applications.Facebook(), action: .profile)
+        let facebookId = profileInfo?.facebookId ?? "661299413"
+        let facebookHooks = "fb://profile/" + facebookId
+        let facebookUrl = NSURL(string: facebookHooks)
+        if UIApplication.shared.canOpenURL(facebookUrl! as URL)
+        {
+            UIApplication.shared.open(facebookUrl! as URL, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.open(NSURL(string: "http://facebook.com/")! as URL, options: [:], completionHandler: nil)
+        }
     }
     
     func instagramTapped(sender:UITapGestureRecognizer) {
-//        let instagramHooks = "instagram://user?username=chocotako1"
-        apps.open(Applications.Instagram(), action: .username(username: "chocotako1"))
+        //        let instagramHooks = "instagram://user?username=chocotako1"
+        let instagramId = profileInfo?.instagramId ?? "chocotako1"
+        apps.open(Applications.Instagram(), action: .username(username: instagramId))
     }
     
     func snapchatTapped(sender:UITapGestureRecognizer) {
-//        let snapchatHooks = "snapchat://add/chocotako"\
-        //tmass9"
-        apps.open(Applications.Snapchat(), action: .add(username: "tmass9"))
+        //        apps.open(Applications.Snapchat(), action: .add(username: "chocotako"))
+        //        snapchat://add/snapchatUsername
+        let snapchatId = profileInfo?.snapchatId ?? "chocotako"
+        let snapchatHooks = "snapchat://add/" + snapchatId
+        let snapchatUrl = NSURL(string: snapchatHooks)
+        if UIApplication.shared.canOpenURL(snapchatUrl! as URL)
+        {
+            UIApplication.shared.open(snapchatUrl! as URL, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.open(NSURL(string: "http://snapchat.com/")! as URL, options: [:], completionHandler: nil)
+        }
     }
     
     func twitterTapped(sender:UITapGestureRecognizer) {
-        apps.open(Applications.Twitter(), action: .userId("Trev_mass"))
+        let twitterId = profileInfo?.twitterId ?? "Trev_mass"
+        apps.open(Applications.Twitter(), action: .userHandle(twitterId))
+        //        let twitterHooks = "twitter://user?screen_name=Trev_mass"
+        //                let twitterUrl = NSURL(string: twitterHooks)
+        //                if UIApplication.shared.canOpenURL(twitterUrl! as URL)
+        //                    {
+        //                            UIApplication.shared.open(twitterUrl! as URL, options: [:], completionHandler: nil)
+        //                        } else {
+        //                        UIApplication.shared.open(NSURL(string: "http://twitter.com/")! as URL, options: [:], completionHandler: nil)
+        //                }
+        
     }
     
     func linkedinTapped(sender:UITapGestureRecognizer) {
-//        let linkedinHooks = "linkedin://add/andrew-takao"
-        apps.open(Applications.Linkedin(), action: .open)
+        let linkedinId = profileInfo?.linkedinId ?? "andrew-takao"
+        let linkedinHooks = "linkedin://add/" + linkedinId
+        let linkedinUrl = NSURL(string: linkedinHooks)
+        if UIApplication.shared.canOpenURL(linkedinUrl! as URL)
+        {
+            UIApplication.shared.open(linkedinUrl! as URL, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.open(NSURL(string: "http://linkedin.com/")! as URL, options: [:], completionHandler: nil)
+        }
+        //        apps.open(Applications.Linkedin(), action: .open)
     }
     
     
@@ -324,30 +358,20 @@ class ProfileViewController: UIViewController {
         contactInformation.isHidden = false
         contactView.isHidden = true
     }
-
+    
     @IBAction func seemoreClicked(_ sender: Any) {
         view.bringSubview(toFront: snapchatView)
         view.bringSubview(toFront: twitterView)
         view.bringSubview(toFront: linkedinView)
         view.sendSubview(toBack: seemoreView)
-//        snapchatView.isHidden = false
-//        twitterView.isHidden = false
-//        linkedinView.isHidden = false
-//        seelessView.isHidden = false
-//        seemoreView.isHidden = true
         view.bringSubview(toFront: seelessView)
     }
-
+    
     @IBAction func seelessClicked(_ sender: Any) {
         view.sendSubview(toBack: snapchatView)
         view.sendSubview(toBack: twitterView)
         view.sendSubview(toBack: linkedinView)
         view.sendSubview(toBack: seelessView)
         view.bringSubview(toFront: seemoreView)
-//        snapchatView.isHidden = true
-//        twitterView.isHidden = true
-//        linkedinView.isHidden = true
-//        seelessView.isHidden = true
-//        seemoreView.isHidden = false
     }
 }

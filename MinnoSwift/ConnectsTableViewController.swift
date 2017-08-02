@@ -12,7 +12,6 @@ extension ConnectsTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
-    
 }
 
 extension ConnectsTableViewController: UISearchBarDelegate {
@@ -40,12 +39,12 @@ class ConnectsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         connects = [
-            Connect(name:"Trevor Massey", picture:(#imageLiteral(resourceName: "avatar"))),
-            Connect(name:"Andrew Takao", picture:(#imageLiteral(resourceName: "avatar"))),
-            Connect(name:"John Smith", picture:(#imageLiteral(resourceName: "avatar"))),
-//            Connect(name:"Pete Holmes", picture:UIImage(named: "profile3.jpg")!),
-//            Connect(name:"Jake Walker", picture:UIImage(named: "profile3.jpg")!),
-            Connect(name:"Mark Peters", picture:(#imageLiteral(resourceName: "avatar")))
+            Connect(name:"Trevor Massey", picture:(#imageLiteral(resourceName: "avatar")), facebookName: "trevor massey", facebookId: "trevor massey",
+            instagramName: "trev_mass", instagramId: "trev_mass", snapchatName: "tmass9", snapchatId: "tmass9",
+            twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "trev_mass", linkedinId: "trev_mass"),
+            Connect(name:"Andrew Takao", picture:(#imageLiteral(resourceName: "avatar")), facebookName: "Andrew Takao", facebookId: "661299413",
+            instagramName: "chocotako1", instagramId: "chocotako1", snapchatName: "chocotako", snapchatId: "chocotako",
+            twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "andrew-takao", linkedinId: "andrew-takao")
         ]
         searchController.searchResultsUpdater = self as? UISearchResultsUpdating
         searchController.dimsBackgroundDuringPresentation = false
@@ -65,21 +64,6 @@ class ConnectsTableViewController: UITableViewController {
             return connects.count
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionCell", for: indexPath)
-//        let connection: Connection
-//        if searchController.isActive && searchController.searchBar.text != "" {
-//            connection = filteredConnections[indexPath.row]
-//        }
-//        else {
-//            connection = connections[indexPath.row]
-//        }
-//        cell.textLabel!.text = connection.name
-//        cell.detailTextLabel?.text = connection.group
-//        
-//        return cell
-//    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectCell", for: indexPath)
@@ -91,38 +75,40 @@ class ConnectsTableViewController: UITableViewController {
             connect = connects[indexPath.row]
         }
         cell.textLabel!.text = connect.name
-        cell.imageView?.image = UIImage(named: "profile3.jpg")
+        cell.imageView?.image = #imageLiteral(resourceName: "avatar")
         
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-////        let selectedProgram = "Trevo"
-//        
-//        // Create an instance of PlayerTableViewController and pass the variable
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedProgram = "Trevo"
+        
 //        let destinationVC = ProfileViewController()
 //        destinationVC.programVar = "Trevo"
-//        
-//        // Let's assume that the segue name is called playerSegue
-//        // This will perform the segue and pre-load the variable for you to use
-//        
-//        var clicked = ""
-//        let connect = connects?[indexPath.row]
+        
+        // Let's assume that the segue name is called playerSegue
+        // This will perform the segue and pre-load the variable for you to use
+        
+        let connect = connects[indexPath.row]
 //        if let connect = connect {
 //            clicked = connect
 //        }
-//        switch(clicked) {
-//        case "Trevor Massey":
-//            print("Sucess")
-//            destinationVC.performSegue(withIdentifier: "trevorSegue", sender: self)
-//            return
-//        case "add or remove social media [TRY ME]":
-//            self.performSegue(withIdentifier: "AddRemoveSegue", sender: self)
-//            return
-//        default:
-//            return
-//        }
-//    }
+        if connect.name == "Trevor Massey" {
+            print("Success")
+            self.performSegue(withIdentifier: "trevorSegue", sender: self)
+        }
+        return
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "trevorSegue" {
+            if let toViewController = segue.destination as? ProfileViewController {
+                toViewController.programVar = "Hello World"
+                toViewController.profileInfo = connects[0]
+            }
+        }
+    }
     
 
 }

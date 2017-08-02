@@ -34,10 +34,6 @@
                                 <rect key="frame" x="284" y="10" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5Sl-e6-V6l">
-                                <rect key="frame" x="35" y="105" width="90" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwB-sd-Inl">
                                 <rect key="frame" x="188" y="225" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -271,17 +267,23 @@
                         <outlet property="contactInformation" destination="b8g-tw-DKn" id="1b1-Rv-b4c"/>
                         <outlet property="contactView" destination="jh0-cp-yEZ" id="Tfm-UQ-wAJ"/>
                         <outlet property="echoView" destination="VwB-sd-Inl" id="6ho-Ha-vm6"/>
+                        <outlet property="facebookNameView" destination="Vg0-ev-2Df" id="fcT-60-Ikv"/>
                         <outlet property="facebookView" destination="V69-3V-u3T" id="Swh-pW-2gM"/>
                         <outlet property="facebookYConstraint" destination="V69-3V-u3T" id="HGW-tA-OZh"/>
                         <outlet property="friendView" destination="sP6-zd-95N" id="WRy-9Y-pgg"/>
+                        <outlet property="instagramNameView" destination="jZZ-Sl-qfN" id="jh3-H1-b52"/>
                         <outlet property="instagramView" destination="Xo0-TS-IMo" id="82R-qp-KJL"/>
                         <outlet property="instagramYConstraint" destination="Xo0-TS-IMo" id="MC8-dD-GzG"/>
+                        <outlet property="linkedinNameView" destination="nGh-hh-oeX" id="UOX-Hi-NWY"/>
                         <outlet property="linkedinView" destination="Y0Y-hh-7d2" id="hDA-gs-xNE"/>
                         <outlet property="linkedinYConstraint" destination="Y0Y-hh-7d2" id="Ema-r2-VMn"/>
+                        <outlet property="nameView" destination="SI0-7Z-zs8" id="uwe-Gv-mXP"/>
                         <outlet property="seelessView" destination="9rl-Y3-RSd" id="exy-2I-L9v"/>
                         <outlet property="seemoreView" destination="PaN-fU-EuS" id="jeo-o1-h28"/>
+                        <outlet property="snapchatNameView" destination="xdr-sc-7e2" id="rBJ-8i-MPO"/>
                         <outlet property="snapchatView" destination="HBq-a7-Vw3" id="B66-o4-643"/>
                         <outlet property="snapchatYConstraint" destination="HBq-a7-Vw3" id="Wnb-2c-ixY"/>
+                        <outlet property="twitterNameView" destination="Jy7-fC-fZd" id="HLP-jL-wzO"/>
                         <outlet property="twitterView" destination="HTb-TV-QBt" id="rOC-lx-fkI"/>
                         <outlet property="twitterYConstraint" destination="HTb-TV-QBt" id="SOB-aq-yBQ"/>
                     </connections>
@@ -325,6 +327,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="fbi-hG-M5T" kind="show" identifier="trevorSegue" id="r0b-q8-JGB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MqS-pD-2j7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -363,7 +368,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ed4-Hu-XsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5636.25" y="437.32394366197184"/>
+            <point key="canvasLocation" x="4637" y="375"/>
         </scene>
         <!--Add Remove Table View Controller-->
         <scene sceneID="cyR-U8-ts2">
@@ -468,7 +473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58r-KQ-QjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="908"/>
+            <point key="canvasLocation" x="1073" y="874"/>
         </scene>
         <!--Settings-->
         <scene sceneID="A1T-IQ-R2T">
@@ -525,7 +530,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uiy-pE-SKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.875" y="167.95774647887325"/>
+            <point key="canvasLocation" x="1074" y="168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hfb-ml-K1q">
@@ -571,10 +576,12 @@
         <image name="feed" width="112" height="112"/>
         <image name="instagram" width="256" height="256"/>
         <image name="linkedin" width="112" height="112"/>
-        <image name="profile3.jpg" width="720" height="960"/>
         <image name="settings" width="112" height="112"/>
         <image name="snapchat" width="112" height="112"/>
         <image name="twitter" width="96" height="96"/>
         <image name="up" width="80" height="80"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="r0b-q8-JGB"/>
+    </inferredMetricsTieBreakers>
 </document>
