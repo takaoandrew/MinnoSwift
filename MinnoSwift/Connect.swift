@@ -10,7 +10,6 @@ import UIKit
 
 class Connect: NSObject {
     var name : String
-    var picture : UIImage
     var facebookName : String
     var facebookId : String
     var instagramName : String
@@ -21,12 +20,16 @@ class Connect: NSObject {
     var twitterId : String
     var linkedinName : String
     var linkedinId : String
+    var soundcloudName : String
+    var soundcloudId : String
+    var youtubeName : String
+    var youtubeId : String
     
-    init(name: String, picture: UIImage, facebookName: String, facebookId: String,
+    init(name: String, facebookName: String, facebookId: String,
          instagramName: String, instagramId: String, snapchatName: String, snapchatId: String,
-         twitterName: String, twitterId: String, linkedinName: String, linkedinId: String) {
+         twitterName: String, twitterId: String, linkedinName: String, linkedinId: String,
+         soundcloudName: String, soundcloudId: String, youtubeName: String, youtubeId: String) {
         self.name = name
-        self.picture = picture
         self.facebookName = facebookName
         self.facebookId = facebookId
         self.instagramName = instagramName
@@ -37,6 +40,10 @@ class Connect: NSObject {
         self.twitterId = twitterId
         self.linkedinName = linkedinName
         self.linkedinId = linkedinId
+        self.soundcloudName = soundcloudName
+        self.soundcloudId = soundcloudId
+        self.youtubeName = youtubeName
+        self.youtubeId = youtubeId
         
     }
 

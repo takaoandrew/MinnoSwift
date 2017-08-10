@@ -27,6 +27,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var snapchatNameView: UILabel!
     @IBOutlet weak var twitterNameView: UILabel!
     @IBOutlet weak var linkedinNameView: UILabel!
+    @IBOutlet weak var soundcloudNameView: UILabel!
+    @IBOutlet weak var youtubeNameView: UILabel!
     @IBOutlet weak var contactView: UIButton!
     @IBOutlet weak var echoView: UIButton!
     @IBOutlet weak var contactInformation: UILabel!
@@ -38,6 +40,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var snapchatView: UIView!
     @IBOutlet weak var twitterView: UIView!
     @IBOutlet weak var linkedinView: UIView!
+    @IBOutlet weak var soundcloudView: UIView!
+    @IBOutlet weak var youtubeView: UIView!
     @IBOutlet weak var seelessView: UIButton!
     @IBOutlet weak var chatContainerView: UIView!
     @IBOutlet weak var profilePictureContainerView: UIView!
@@ -92,6 +96,8 @@ class ProfileViewController: UIViewController {
         snapchatNameView.text = profileInfo?.snapchatName ?? "chocotako"
         twitterNameView.text = profileInfo?.twitterName ?? "tweetakao"
         linkedinNameView.text = profileInfo?.linkedinName ?? "Andrew Takao"
+        soundcloudNameView.text = profileInfo?.soundcloudName ?? "Andrew Takao"
+        youtubeNameView.text = profileInfo?.youtubeName ?? "Takao Productions"
         
         
         let facebookTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.facebookTapped(sender:)))
@@ -108,6 +114,12 @@ class ProfileViewController: UIViewController {
         
         let linkedinTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.linkedinTapped(sender:)))
         linkedinView.addGestureRecognizer(linkedinTap)
+        
+        let soundcloudTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.soundcloudTapped(sender:)))
+        soundcloudView.addGestureRecognizer(soundcloudTap)
+        
+        let youtubeTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.youtubeTapped(sender:)))
+        youtubeView.addGestureRecognizer(youtubeTap)
         
         chatViewController.view.isHidden = false
         profilePictureViewController.view.isHidden = false
@@ -129,6 +141,8 @@ class ProfileViewController: UIViewController {
         snapchatView.isUserInteractionEnabled = false
         twitterView.isUserInteractionEnabled = false
         linkedinView.isUserInteractionEnabled = false
+        soundcloudView.isUserInteractionEnabled = false
+        youtubeView.isUserInteractionEnabled = false
         view.bringSubview(toFront: chatViewController.view)
     }
     
@@ -148,6 +162,8 @@ class ProfileViewController: UIViewController {
         snapchatView.isUserInteractionEnabled = true
         twitterView.isUserInteractionEnabled = true
         linkedinView.isUserInteractionEnabled = true
+        soundcloudView.isUserInteractionEnabled = true
+        youtubeView.isUserInteractionEnabled = true
         view.sendSubview(toBack: chatViewController.view)
         seelessClicked((Any).self)
     }
@@ -175,6 +191,8 @@ class ProfileViewController: UIViewController {
                         self.bumpUp(view: self.snapchatView)
                         self.bumpUp(view: self.twitterView)
                         self.bumpUp(view: self.linkedinView)
+                        self.bumpUp(view: self.soundcloudView)
+                        self.bumpUp(view: self.youtubeView)
                         self.bumpUp(view: self.seelessView)
                     }
                     else {
@@ -188,6 +206,8 @@ class ProfileViewController: UIViewController {
                         self.bumpUp(view: self.snapchatView)
                         self.bumpUp(view: self.twitterView)
                         self.bumpUp(view: self.linkedinView)
+                        self.bumpUp(view: self.soundcloudView)
+                        self.bumpUp(view: self.youtubeView)
                         self.bumpUp(view: self.seelessView)
                     }
                     else {
@@ -199,6 +219,8 @@ class ProfileViewController: UIViewController {
                         self.snapchatView.isHidden = true
                         self.bumpUp(view: self.twitterView)
                         self.bumpUp(view: self.linkedinView)
+                        self.bumpUp(view: self.soundcloudView)
+                        self.bumpUp(view: self.youtubeView)
                         self.bumpUp(view: self.seelessView)
                     }
                     else {
@@ -209,6 +231,8 @@ class ProfileViewController: UIViewController {
                     if  element["show"] == "hide" {
                         self.twitterView.isHidden = true
                         self.bumpUp(view: self.linkedinView)
+                        self.bumpUp(view: self.soundcloudView)
+                        self.bumpUp(view: self.youtubeView)
                         self.bumpUp(view: self.seelessView)
                     }
                     else {
@@ -218,11 +242,34 @@ class ProfileViewController: UIViewController {
                 else if key == "linkedin" {
                     if  element["show"] == "hide" {
                         self.linkedinView.isHidden = true
+                        self.bumpUp(view: self.soundcloudView)
+                        self.bumpUp(view: self.youtubeView)
                         self.bumpUp(view: self.seelessView)
                     }
                     else {
                         self.linkedinView.isHidden = false
                     }
+                }
+                else if key == "soundcloud" {
+                    if element["show"] == "hide" {
+                        self.soundcloudView.isHidden = true
+                        self.bumpUp(view: self.youtubeView)
+                        self.bumpUp(view: self.seelessView)
+                    }
+                    else {
+                        self.soundcloudView.isHidden = false
+                    }
+                    
+                }
+                else if key == "youtube" {
+                    if element["show"] == "hide" {
+                        self.youtubeView.isHidden = true
+                        self.bumpUp(view: self.seelessView)
+                    }
+                    else {
+                        self.youtubeView.isHidden = false
+                    }
+                    
                 }
             }
         })
@@ -231,6 +278,8 @@ class ProfileViewController: UIViewController {
         view.bringSubview(toFront: snapchatView)
         view.bringSubview(toFront: twitterView)
         view.bringSubview(toFront: linkedinView)
+        view.bringSubview(toFront: soundcloudView)
+        view.bringSubview(toFront: youtubeView)
         view.bringSubview(toFront: seemoreView)
         
         seelessClicked((Any).self)
@@ -248,39 +297,60 @@ class ProfileViewController: UIViewController {
             let settingsData = snapshot.value as! Dictionary<String, Dictionary<String, String>>
             for (key, element) in settingsData {
                 if key == "facebook" {
-                    if  element["show"] == "hide" {
+                    if element["show"] == "hide" {
                         self.bumpDown(view: self.instagramView)
                         self.bumpDown(view: self.seemoreView)
                         self.bumpDown(view: self.snapchatView)
                         self.bumpDown(view: self.twitterView)
                         self.bumpDown(view: self.linkedinView)
+                        self.bumpDown(view: self.soundcloudView)
+                        self.bumpDown(view: self.youtubeView)
                         self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "instagram" {
-                    if  element["show"] == "hide" {
+                    if element["show"] == "hide" {
                         self.bumpDown(view: self.seemoreView)
                         self.bumpDown(view: self.snapchatView)
                         self.bumpDown(view: self.twitterView)
                         self.bumpDown(view: self.linkedinView)
+                        self.bumpDown(view: self.soundcloudView)
+                        self.bumpDown(view: self.youtubeView)
                         self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "snapchat" {
-                    if  element["show"] == "hide" {
+                    if element["show"] == "hide" {
                         self.bumpDown(view: self.twitterView)
                         self.bumpDown(view: self.linkedinView)
+                        self.bumpDown(view: self.soundcloudView)
+                        self.bumpDown(view: self.youtubeView)
                         self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "twitter" {
-                    if  element["show"] == "hide" {
+                    if element["show"] == "hide" {
                         self.bumpDown(view: self.linkedinView)
+                        self.bumpDown(view: self.soundcloudView)
+                        self.bumpDown(view: self.youtubeView)
                         self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "linkedin" {
-                    if  element["show"] == "hide" {
+                    if element["show"] == "hide" {
+                        self.bumpDown(view: self.soundcloudView)
+                        self.bumpDown(view: self.youtubeView)
+                        self.bumpDown(view: self.seelessView)
+                    }
+                }
+                else if key == "soundcloud" {
+                    if element["show"] == "hide" {
+                        self.bumpDown(view: self.youtubeView)
+                        self.bumpDown(view: self.seelessView)
+                    }
+                }
+                else if key == "youtube" {
+                    if element["show"] == "hide" {
                         self.bumpDown(view: self.seelessView)
                     }
                 }
@@ -353,6 +423,32 @@ class ProfileViewController: UIViewController {
         //        apps.open(Applications.Linkedin(), action: .open)
     }
     
+    func soundcloudTapped(sender:UITapGestureRecognizer) {
+        let soundcloudId = profileInfo?.soundcloudId ?? "andrew-takao"
+        let soundcloudHooks = "soundcloud://profile/" + soundcloudId
+        let soundcloudUrl = NSURL(string: soundcloudHooks)
+        if UIApplication.shared.canOpenURL(soundcloudUrl! as URL)
+        {
+            UIApplication.shared.open(soundcloudUrl! as URL, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.open(NSURL(string: "http://soundcloud.com/")! as URL, options: [:], completionHandler: nil)
+        }
+        //        apps.open(Applications.Linkedin(), action: .open)
+    }
+    
+    func youtubeTapped(sender:UITapGestureRecognizer) {
+        let youtubeId = profileInfo?.youtubeId ?? "Takao Productions"
+        let youtubeHooks = "youtube://profile/" + youtubeId
+        let youtubeUrl = NSURL(string: youtubeHooks)
+        if UIApplication.shared.canOpenURL(youtubeUrl! as URL)
+        {
+            UIApplication.shared.open(youtubeUrl! as URL, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.open(NSURL(string: "http://youtube.com/")! as URL, options: [:], completionHandler: nil)
+        }
+        //        apps.open(Applications.Linkedin(), action: .open)
+    }
+    
     
     @IBAction func contactClicked(_ sender: Any) {
         contactInformation.isHidden = false
@@ -363,6 +459,8 @@ class ProfileViewController: UIViewController {
         view.bringSubview(toFront: snapchatView)
         view.bringSubview(toFront: twitterView)
         view.bringSubview(toFront: linkedinView)
+        view.bringSubview(toFront: soundcloudView)
+        view.bringSubview(toFront: youtubeView)
         view.sendSubview(toBack: seemoreView)
         view.bringSubview(toFront: seelessView)
     }
@@ -371,6 +469,8 @@ class ProfileViewController: UIViewController {
         view.sendSubview(toBack: snapchatView)
         view.sendSubview(toBack: twitterView)
         view.sendSubview(toBack: linkedinView)
+        view.sendSubview(toBack: soundcloudView)
+        view.sendSubview(toBack: youtubeView)
         view.sendSubview(toBack: seelessView)
         view.bringSubview(toFront: seemoreView)
     }

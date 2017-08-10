@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("small iPhone")
             var mainView: UIStoryboard!
             mainView = UIStoryboard(name: "5s", bundle: nil)
-            let viewcontroller : UIViewController = mainView.instantiateViewController(withIdentifier: "ProfileViewController") as UIViewController
+            let viewcontroller : UIViewController = mainView.instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
             self.window!.rootViewController = viewcontroller
             
             if screenHeight == 920 {

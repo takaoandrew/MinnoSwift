@@ -39,12 +39,14 @@ class ConnectsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         connects = [
-            Connect(name:"Trevor Massey", picture:(#imageLiteral(resourceName: "avatar")), facebookName: "trevor massey", facebookId: "trevor massey",
+            Connect(name:"Trevor Massey", facebookName: "trevor massey", facebookId: "1565426905",
             instagramName: "trev_mass", instagramId: "trev_mass", snapchatName: "tmass9", snapchatId: "tmass9",
-            twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "trev_mass", linkedinId: "trev_mass"),
-            Connect(name:"Andrew Takao", picture:(#imageLiteral(resourceName: "avatar")), facebookName: "Andrew Takao", facebookId: "661299413",
+            twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "trev_mass", linkedinId: "trev_mass",
+            soundcloudName: "trev_mass", soundcloudId: "trev_mass", youtubeName: "trev_mass", youtubeId: "trev_mass"),
+            Connect(name:"Andrew Takao", facebookName: "Andrew Takao", facebookId: "661299413",
             instagramName: "chocotako1", instagramId: "chocotako1", snapchatName: "chocotako", snapchatId: "chocotako",
-            twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "andrew-takao", linkedinId: "andrew-takao")
+            twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "andrew-takao", linkedinId: "andrew-takao",
+            soundcloudName: "trev_mass", soundcloudId: "trev_mass", youtubeName: "Takao productions", youtubeId: "trev_mass")
         ]
         searchController.searchResultsUpdater = self as? UISearchResultsUpdating
         searchController.dimsBackgroundDuringPresentation = false
