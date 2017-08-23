@@ -10,6 +10,8 @@ import UIKit
 
 class Connect: NSObject {
     var name : String
+    var email : String
+    var phone : String
     var facebookName : String
     var facebookId : String
     var instagramName : String
@@ -25,11 +27,13 @@ class Connect: NSObject {
     var youtubeName : String
     var youtubeId : String
     
-    init(name: String, facebookName: String, facebookId: String,
+    init(name: String, email: String, phone: String, facebookName: String, facebookId: String,
          instagramName: String, instagramId: String, snapchatName: String, snapchatId: String,
          twitterName: String, twitterId: String, linkedinName: String, linkedinId: String,
          soundcloudName: String, soundcloudId: String, youtubeName: String, youtubeId: String) {
         self.name = name
+        self.email = email
+        self.phone = phone
         self.facebookName = facebookName
         self.facebookId = facebookId
         self.instagramName = instagramName

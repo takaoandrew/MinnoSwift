@@ -67,7 +67,7 @@ class AddRemoveTableViewController: UITableViewController {
                     tempRef.setValue(settingsItem)
                 }
                 else {
-                    if self.count <= 4 {
+                    if self.count <= 5 {
                         let settingsItem = [
                             "media": self.media[indexPath.row],
                             "show": "show"
@@ -75,7 +75,7 @@ class AddRemoveTableViewController: UITableViewController {
                         tempRef.setValue(settingsItem)
                     }
                     else {
-                        let alertController = UIAlertController(title: "", message: "Please select 5 or less", preferredStyle: UIAlertControllerStyle.alert)
+                        let alertController = UIAlertController(title: "", message: "Please select 6 or less", preferredStyle: UIAlertControllerStyle.alert)
 //                        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
 //                            print("Cancel")
 //                        }

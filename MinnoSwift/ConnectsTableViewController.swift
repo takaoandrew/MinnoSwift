@@ -39,11 +39,13 @@ class ConnectsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         connects = [
-            Connect(name:"Trevor Massey", facebookName: "trevor massey", facebookId: "1565426905",
+            Connect(name:"Trevor Massey", email: "trevmass@gmail.com", phone: "123-456-7890",
+            facebookName: "trevor massey", facebookId: "1565426905",
             instagramName: "trev_mass", instagramId: "trev_mass", snapchatName: "tmass9", snapchatId: "tmass9",
             twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "trev_mass", linkedinId: "trev_mass",
             soundcloudName: "trev_mass", soundcloudId: "trev_mass", youtubeName: "trev_mass", youtubeId: "trev_mass"),
-            Connect(name:"Andrew Takao", facebookName: "Andrew Takao", facebookId: "661299413",
+            Connect(name:"Andrew Takao", email: "takaoandrew@gmail.com", phone: "631-398-9782",
+            facebookName: "Andrew Takao", facebookId: "661299413",
             instagramName: "chocotako1", instagramId: "chocotako1", snapchatName: "chocotako", snapchatId: "chocotako",
             twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "andrew-takao", linkedinId: "andrew-takao",
             soundcloudName: "trev_mass", soundcloudId: "trev_mass", youtubeName: "Takao productions", youtubeId: "trev_mass")

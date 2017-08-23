@@ -12,12 +12,14 @@ import JSQMessagesViewController
 import Appz
 
 
+
 class ProfileViewController: UIViewController {
     
     let apps = UIApplication.shared
     
     var programVar : String?
     var profileInfo : Connect?
+    var privacyInfo : Connect?
     
     //    var addRemoveTableViewController: AddRemoveTableViewController = AddRemoveTableViewController
     
@@ -50,6 +52,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var snapchatYConstraint: NSLayoutConstraint!
     @IBOutlet weak var twitterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var linkedinYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var ConnectButton: UIButton!
     
     lazy var profilePictureViewController: ProfilePictureViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -68,29 +71,29 @@ class ProfileViewController: UIViewController {
         
     }()
     
-    lazy var chatViewController: ChatViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-        var chatViewFrame: CGRect
-        
-        if self.view.bounds.size.height >= 580 {
-            chatViewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
-        }
-        else {
-            //            print("small picture")
-            chatViewFrame = CGRect(x:0, y:270, width:self.view.bounds.size.width, height:self.view.bounds.size.height-270)
-        }
-        
-        self.addViewControllerAsChildViewController(childViewController: viewController, cGRect: chatViewFrame)
-        return viewController
-    }()
+//    lazy var chatViewController: ChatViewController = {
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        
+//        var viewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+//        var chatViewFrame: CGRect
+//        
+//        if self.view.bounds.size.height >= 580 {
+//            chatViewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
+//        }
+//        else {
+//            //            print("small picture")
+//            chatViewFrame = CGRect(x:0, y:270, width:self.view.bounds.size.width, height:self.view.bounds.size.height-270)
+//        }
+//        
+//        self.addViewControllerAsChildViewController(childViewController: viewController, cGRect: chatViewFrame)
+//        return viewController
+//    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nameView.text = profileInfo?.name ?? "Andrew Takao"
+        contactInformation.text = (profileInfo?.email)! + "\r" + (profileInfo?.phone)!
         facebookNameView.text = profileInfo?.facebookName ?? "takaoandrew"
         instagramNameView.text = profileInfo?.instagramName ?? "andrewtakao"
         snapchatNameView.text = profileInfo?.snapchatName ?? "chocotako"
@@ -121,7 +124,10 @@ class ProfileViewController: UIViewController {
         let youtubeTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.youtubeTapped(sender:)))
         youtubeView.addGestureRecognizer(youtubeTap)
         
-        chatViewController.view.isHidden = false
+//        chatViewController.view.isHidden = false
+        
+        seemoreView.isHidden = true
+        seelessView.isHidden = true
         profilePictureViewController.view.isHidden = false
         
         let dismissKeyboardTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.dismissKeyboard))
@@ -143,7 +149,7 @@ class ProfileViewController: UIViewController {
         linkedinView.isUserInteractionEnabled = false
         soundcloudView.isUserInteractionEnabled = false
         youtubeView.isUserInteractionEnabled = false
-        view.bringSubview(toFront: chatViewController.view)
+//        view.bringSubview(toFront: chatViewController.view)
     }
     
     
@@ -164,7 +170,7 @@ class ProfileViewController: UIViewController {
         linkedinView.isUserInteractionEnabled = true
         soundcloudView.isUserInteractionEnabled = true
         youtubeView.isUserInteractionEnabled = true
-        view.sendSubview(toBack: chatViewController.view)
+//        view.sendSubview(toBack: chatViewController.view)
         seelessClicked((Any).self)
     }
     
@@ -270,6 +276,82 @@ class ProfileViewController: UIViewController {
                         self.youtubeView.isHidden = false
                     }
                     
+                }
+            }
+        })
+        ref.child("privacy_settings").observeSingleEvent(of: .value, with: { snapshot in
+            let settingsData = snapshot.value as! Dictionary<String, Dictionary<String, String>>
+            for (key, element) in settingsData {
+                if key == "facebook" {
+                    if  element["show"] == "hide" {
+                        self.facebookNameView?.textColor = UIColor.gray
+                        self.facebookNameView?.text = "Private"
+                    }
+                    else {                        
+                        self.facebookNameView?.textColor = UIColor.black
+                        self.facebookNameView.text = self.profileInfo?.facebookName ?? "takaoandrew"
+                    }
+                }
+                else if key == "instagram" {
+                    if  element["show"] == "hide" {
+                        self.instagramNameView?.textColor = UIColor.gray
+                        self.instagramNameView?.text = "Private"
+                    }
+                    else {
+                        self.instagramNameView?.textColor = UIColor.black
+                        self.instagramNameView.text = self.profileInfo?.instagramName ?? "andrewtakao"
+                    }
+                }
+                else if key == "snapchat" {
+                    if  element["show"] == "hide" {
+                        self.snapchatNameView?.textColor = UIColor.gray
+                        self.snapchatNameView?.text = "Private"
+                    }
+                    else {
+                        self.snapchatNameView?.textColor = UIColor.black
+                        self.snapchatNameView.text = self.profileInfo?.snapchatName ?? "chocotako"
+                    }
+                }
+                else if key == "twitter" {
+                    if  element["show"] == "hide" {
+                        self.twitterNameView?.textColor = UIColor.gray
+                        self.twitterNameView?.text = "Private"
+                    }
+                    else {
+                        self.twitterNameView?.textColor = UIColor.black
+                        self.twitterNameView.text = self.profileInfo?.twitterName ?? "tweetakao"
+                    }
+                }
+                else if key == "linkedin" {
+                    if  element["show"] == "hide" {
+                        self.linkedinNameView?.textColor = UIColor.gray
+                        self.linkedinNameView?.text = "Private"
+                    }
+                    else {
+                        self.linkedinNameView?.textColor = UIColor.black
+                        self.linkedinNameView.text = self.profileInfo?.linkedinName ?? "Andrew Takao"
+                    }
+                }
+                else if key == "soundcloud" {
+                    if element["show"] == "hide" {
+                        self.soundcloudNameView?.textColor = UIColor.gray
+                        self.soundcloudNameView?.text = "Private"
+                    }
+                    else {
+                        self.soundcloudNameView?.textColor = UIColor.black
+                        self.soundcloudNameView.text = self.profileInfo?.soundcloudName ?? "Andrew Takao"
+                    }
+                    
+                }
+                else if key == "youtube" {
+                    if element["show"] == "hide" {
+                        self.youtubeNameView?.textColor = UIColor.gray
+                        self.youtubeNameView?.text = "Private"
+                    }
+                    else {
+                        self.youtubeNameView?.textColor = UIColor.black
+                        self.youtubeNameView.text = self.profileInfo?.youtubeName ?? "Takao Productions"
+                    }
                 }
             }
         })
@@ -447,6 +529,10 @@ class ProfileViewController: UIViewController {
             UIApplication.shared.open(NSURL(string: "http://youtube.com/")! as URL, options: [:], completionHandler: nil)
         }
         //        apps.open(Applications.Linkedin(), action: .open)
+    }
+    @IBAction func ConnectClicked(_ sender: Any) {
+        ConnectButton.setTitle("Connected", for: .normal)
+        ConnectButton.backgroundColor = UIColor.green
     }
     
     

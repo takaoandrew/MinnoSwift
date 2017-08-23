@@ -49,7 +49,7 @@ class SettingsTableViewController: UITableViewController {
         switch(clicked) {
             case "privacy settings [TRY ME]":
                 print("Success")
-                self.performSegue(withIdentifier: "Trevor Profile", sender: self)
+                self.performSegue(withIdentifier: "PrivacySegue", sender: self)
                 return
             case "add or remove social media [TRY ME]":
                 print("Sucess")

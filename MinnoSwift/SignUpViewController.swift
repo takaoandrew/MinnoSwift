@@ -39,7 +39,7 @@ class SignUpViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let connect = Connect(name: NameField.text!, facebookName: FacebookField.text!, facebookId: FacebookField.text!, instagramName: InstagramField.text!, instagramId: InstagramField.text!, snapchatName: SnapchatField.text!, snapchatId: SnapchatField.text!, twitterName: TwitterField.text!, twitterId: TwitterField.text!, linkedinName: LinkedinField.text!, linkedinId: LinkedinField.text!, soundcloudName: SoundcloudField.text!, soundcloudId: SoundcloudField.text!, youtubeName: YoutubeField.text!, youtubeId: YoutubeField.text!)
+        let connect = Connect(name: NameField.text!, email: EmailField.text!, phone: PhoneField.text!, facebookName: FacebookField.text!, facebookId: FacebookField.text!, instagramName: InstagramField.text!, instagramId: InstagramField.text!, snapchatName: SnapchatField.text!, snapchatId: SnapchatField.text!, twitterName: TwitterField.text!, twitterId: TwitterField.text!, linkedinName: LinkedinField.text!, linkedinId: LinkedinField.text!, soundcloudName: SoundcloudField.text!, soundcloudId: SoundcloudField.text!, youtubeName: YoutubeField.text!, youtubeId: YoutubeField.text!)
         
         if let toViewController = segue.destination as? ProfileViewController {
             toViewController.profileInfo = connect
@@ -52,6 +52,8 @@ class SignUpViewController: UIViewController {
         userRef.observeSingleEvent(of: .value, with: { snapshot in
             let tempRef = userRef.child(connect.name)
             tempRef.child("name").setValue(connect.name)
+            tempRef.child("email").setValue(connect.email)
+            tempRef.child("phone").setValue(connect.phone)
             tempRef.child("facebookName").setValue(connect.facebookName)
             tempRef.child("facebookId").setValue(connect.facebookId)
             tempRef.child("instagramName").setValue(connect.instagramName)

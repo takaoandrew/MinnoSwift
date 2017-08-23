@@ -36,6 +36,8 @@ class LoginViewController: UIViewController {
                     print(currentUser["name"]!)
                     self.connect = Connect(
                         name: currentUser["name"]!,
+                        email: currentUser["email"]!,
+                        phone: currentUser["phone"]!,
                         facebookName: currentUser["facebookName"]!,
                         facebookId: currentUser["facebookId"]!,
                         instagramName: currentUser["instagramName"]!,
@@ -70,6 +72,7 @@ class LoginViewController: UIViewController {
             if let toViewController = segue.destination as? ProfileViewController {
                 print(self.connect ?? "helloguy")
                 toViewController.profileInfo = self.connect
+                
             }
         }
     }
