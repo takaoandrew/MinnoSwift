@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
     let apps = UIApplication.shared
     
     var programVar : String?
+    var defaultProfileInfo = Connect(name: "Test Name", email: "TestEmail", phone: "Test Phone", facebookName: "", facebookId: "", instagramName: "", instagramId: "", snapchatName: "", snapchatId: "", twitterName: "", twitterId: "", linkedinName: "", linkedinId: "", soundcloudName: "", soundcloudId: "", youtubeName: "", youtubeId: "")
+    
     var profileInfo : Connect?
     var privacyInfo : Connect?
     
@@ -93,7 +95,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameView.text = profileInfo?.name ?? "Andrew Takao"
-        contactInformation.text = (profileInfo?.email)! + "\r" + (profileInfo?.phone)!
+        contactInformation.text = ((profileInfo?.email) ?? "takaoandrew@gmail.com") + "\r" + (profileInfo?.phone ?? "631-398-9782")
         facebookNameView.text = profileInfo?.facebookName ?? "takaoandrew"
         instagramNameView.text = profileInfo?.instagramName ?? "andrewtakao"
         snapchatNameView.text = profileInfo?.snapchatName ?? "chocotako"
@@ -481,14 +483,6 @@ class ProfileViewController: UIViewController {
     func twitterTapped(sender:UITapGestureRecognizer) {
         let twitterId = profileInfo?.twitterId ?? "Trev_mass"
         apps.open(Applications.Twitter(), action: .userHandle(twitterId))
-        //        let twitterHooks = "twitter://user?screen_name=Trev_mass"
-        //                let twitterUrl = NSURL(string: twitterHooks)
-        //                if UIApplication.shared.canOpenURL(twitterUrl! as URL)
-        //                    {
-        //                            UIApplication.shared.open(twitterUrl! as URL, options: [:], completionHandler: nil)
-        //                        } else {
-        //                        UIApplication.shared.open(NSURL(string: "http://twitter.com/")! as URL, options: [:], completionHandler: nil)
-        //                }
         
     }
     
@@ -530,6 +524,8 @@ class ProfileViewController: UIViewController {
         }
         //        apps.open(Applications.Linkedin(), action: .open)
     }
+    
+    
     @IBAction func ConnectClicked(_ sender: Any) {
         ConnectButton.setTitle("Connected", for: .normal)
         ConnectButton.backgroundColor = UIColor.green
@@ -539,6 +535,10 @@ class ProfileViewController: UIViewController {
     @IBAction func contactClicked(_ sender: Any) {
         contactInformation.isHidden = false
         contactView.isHidden = true
+    }
+    
+    @IBAction func echoClicked(_ sender: Any) {
+        
     }
     
     @IBAction func seemoreClicked(_ sender: Any) {
@@ -559,5 +559,14 @@ class ProfileViewController: UIViewController {
         view.sendSubview(toBack: youtubeView)
         view.sendSubview(toBack: seelessView)
         view.bringSubview(toFront: seemoreView)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let toViewController = segue.destination as? EchoViewController {
+            if segue.identifier == "echoSegue" {
+                toViewController.profileInfo = self.profileInfo ?? defaultProfileInfo
+            }
+            
+        }
     }
 }

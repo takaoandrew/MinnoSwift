@@ -25,6 +25,9 @@
 		BF8ABB891F0703C7007AA085 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF8ABB881F0703C7007AA085 /* GoogleService-Info.plist */; };
 		BFB63A191F3A6DA9005B3C7F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB63A181F3A6DA9005B3C7F /* LoginViewController.swift */; };
 		BFB63A1B1F3A7BD7005B3C7F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB63A1A1F3A7BD7005B3C7F /* SignUpViewController.swift */; };
+		BFB63A271F4F7F01005B3C7F /* EchoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB63A261F4F7F01005B3C7F /* EchoViewController.swift */; };
+		BFB63A291F5226B8005B3C7F /* EchoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB63A281F5226B8005B3C7F /* EchoDetailViewController.swift */; };
+		BFB63A2D1F5229D6005B3C7F /* Echo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB63A2C1F5229D6005B3C7F /* Echo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		BF90BEDEF5B003BD94417067 /* Pods_MinnoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinnoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB63A181F3A6DA9005B3C7F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BFB63A1A1F3A7BD7005B3C7F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BFB63A261F4F7F01005B3C7F /* EchoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoViewController.swift; sourceTree = "<group>"; };
+		BFB63A281F5226B8005B3C7F /* EchoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoDetailViewController.swift; sourceTree = "<group>"; };
+		BFB63A2C1F5229D6005B3C7F /* Echo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Echo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,9 @@
 				BF3840701F2AA88C00FB758A /* Connect.swift */,
 				BFB63A181F3A6DA9005B3C7F /* LoginViewController.swift */,
 				BFB63A1A1F3A7BD7005B3C7F /* SignUpViewController.swift */,
+				BFB63A261F4F7F01005B3C7F /* EchoViewController.swift */,
+				BFB63A281F5226B8005B3C7F /* EchoDetailViewController.swift */,
+				BFB63A2C1F5229D6005B3C7F /* Echo.swift */,
 			);
 			path = MinnoSwift;
 			sourceTree = "<group>";
@@ -256,9 +265,12 @@
 				BF15A7761F17149400CFB1B4 /* TrevorViewController.swift in Sources */,
 				BF3840711F2AA88C00FB758A /* Connect.swift in Sources */,
 				BF8ABB851F05E6FB007AA085 /* ChatViewController.swift in Sources */,
+				BFB63A291F5226B8005B3C7F /* EchoDetailViewController.swift in Sources */,
 				BFB63A1B1F3A7BD7005B3C7F /* SignUpViewController.swift in Sources */,
 				BF8ABB401F002DEC007AA085 /* AppDelegate.swift in Sources */,
+				BFB63A2D1F5229D6005B3C7F /* Echo.swift in Sources */,
 				BF28FCA71F08165F00DF93BB /* ProfilePictureViewController.swift in Sources */,
+				BFB63A271F4F7F01005B3C7F /* EchoViewController.swift in Sources */,
 				BF8ABB731F004672007AA085 /* ConnectsTableViewController.swift in Sources */,
 				BF8ABB791F00957E007AA085 /* AddRemoveTableViewController.swift in Sources */,
 				BFB63A191F3A6DA9005B3C7F /* LoginViewController.swift in Sources */,

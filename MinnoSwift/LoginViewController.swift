@@ -70,7 +70,6 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "login" {
             if let toViewController = segue.destination as? ProfileViewController {
-                print(self.connect ?? "helloguy")
                 toViewController.profileInfo = self.connect
                 
             }

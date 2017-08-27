@@ -104,8 +104,9 @@ class ConnectsTableViewController: UITableViewController {
         return
     }
     
+    
+    //Clicking Trevor redirects to his profile
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "trevorSegue" {
             if let toViewController = segue.destination as? ProfileViewController {
                 toViewController.programVar = "Hello World"
