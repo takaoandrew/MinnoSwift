@@ -70,8 +70,7 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "login" {
             if let toViewController = segue.destination as? ProfileViewController {
-                toViewController.profileInfo = self.connect
-                
+                toViewController.profileInfo = self.connect                
             }
         }
     }

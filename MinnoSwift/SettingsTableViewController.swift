@@ -16,7 +16,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        settings = ["privacy settings [TRY ME]", "following", "push notifications", "change number", "terms of use", "data policy", "add or remove social media [TRY ME]"]
+        settings = ["privacy settings", "following [coming soon]", "push notifications [coming soon]", "edit handles", "terms of use [coming soon]", "data policy [coming soon]", "add or remove social media", "sign out"]
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {        
@@ -47,13 +47,14 @@ class SettingsTableViewController: UITableViewController {
             clicked = setting
         }
         switch(clicked) {
-            case "privacy settings [TRY ME]":
-                print("Success")
+            case "privacy settings":
                 self.performSegue(withIdentifier: "PrivacySegue", sender: self)
                 return
-            case "add or remove social media [TRY ME]":
-                print("Sucess")
+            case "add or remove social media":
                 self.performSegue(withIdentifier: "AddRemoveSegue", sender: self)
+                return
+            case "sign out":
+                self.performSegue(withIdentifier: "LoginSegue", sender: self)
                 return
             default:
                 return

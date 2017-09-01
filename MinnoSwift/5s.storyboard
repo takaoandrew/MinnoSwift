@@ -614,12 +614,28 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrivacyCell" rowHeight="53" id="qtc-xF-d65">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrivacyCell" textLabel="U7k-CA-nsn" detailTextLabel="aWF-T4-ZZf" rowHeight="53" style="IBUITableViewCellStyleValue1" id="qtc-xF-d65">
                                 <rect key="frame" x="0.0" y="90" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qtc-xF-d65" id="2uG-Be-LDr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U7k-CA-nsn">
+                                            <rect key="frame" x="15" y="16" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aWF-T4-ZZf">
+                                            <rect key="frame" x="261" y="16" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -780,6 +796,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ST2-K3-NlE">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uiy-pE-SKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hlz-cd-pqS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8kk-c6-Iwa">
@@ -791,7 +808,6 @@
                         <segue destination="fbi-hG-M5T" kind="relationship" relationship="rootViewController" id="q59-ET-b1A"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uiy-pE-SKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2070" y="167.95774647887325"/>
         </scene>
@@ -910,7 +926,7 @@
             </objects>
             <point key="canvasLocation" x="1117.5" y="-541.90140845070425"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Welcome to Minno!-->
         <scene sceneID="LsL-E8-gQW">
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="7sM-PN-NGg" customClass="LoginViewController" customModule="MinnoSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -939,7 +955,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="hbY-WY-D1k" kind="show" id="dyr-Pq-dUD"/>
+                                    <segue destination="eHk-Zj-d8u" kind="show" id="nht-LC-Xwz"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LOGIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dka-HP-yBz">
@@ -949,11 +965,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYj-wp-vxL">
-                                <rect key="frame" x="160" y="568" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Up"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SIGNUP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUs-9Q-cPg">
                                 <rect key="frame" x="0.0" y="400" width="320" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -964,7 +975,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ALp-Z8-XP1"/>
+                    <navigationItem key="navigationItem" title="Welcome to Minno!" id="ALp-Z8-XP1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6O-Tp-wmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -973,6 +984,7 @@
         <!--Navigation Controller-->
         <scene sceneID="TzI-FT-Q7Q">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DoJ-oN-CKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="laG-pg-Hs3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ciB-Ei-P1w">
@@ -984,7 +996,6 @@
                         <segue destination="7sM-PN-NGg" kind="relationship" relationship="rootViewController" id="vwX-Uc-NrE"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DoJ-oN-CKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120" y="167.95774647887325"/>
         </scene>
@@ -1203,8 +1214,8 @@
         <image name="youtube" width="87" height="87"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="i2s-mE-kog"/>
+        <segue reference="Aea-BY-zvv"/>
         <segue reference="gaU-dp-Aba"/>
-        <segue reference="Mvx-t3-DDj"/>
-        <segue reference="dyr-Pq-dUD"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -37,13 +37,13 @@ class PrivacyTableViewController: UITableViewController {
             let settingsData = snapshot.value as! Dictionary<String, String>
             if let id = settingsData["show"] as String! {
                 if id == "show" {
-                    cell.detailTextLabel?.text = id
+                    cell.detailTextLabel?.text = ""
                     cell.backgroundColor = UIColor.red
                     self.count += 1
                     //                    print(self.count)
                 }
                 else {
-                    cell.detailTextLabel?.text = id
+                    cell.detailTextLabel?.text = "private"
                     cell.backgroundColor = UIColor.blue
                 }
             }
