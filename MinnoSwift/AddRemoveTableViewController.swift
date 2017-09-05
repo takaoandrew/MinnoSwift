@@ -11,7 +11,6 @@ import Firebase
 
 class AddRemoveTableViewController: UITableViewController {
 
-//    let ref = Database.database().reference(withPath: "add_remove_settings")
     private var newSettingRefHandle: DatabaseHandle?
     
     var media: [String] = []
@@ -52,8 +51,7 @@ class AddRemoveTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("click and count is")
-//        print(count)
+        
         let currentMedia = self.media[indexPath.row]
         let tempRef = Database.database().reference().child("add_remove_settings").child(currentMedia)
         tempRef.observeSingleEvent(of: .value, with: { snapshot in

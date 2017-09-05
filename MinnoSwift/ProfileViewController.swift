@@ -11,12 +11,22 @@ import Firebase
 import JSQMessagesViewController
 import Appz
 
+extension ProfileViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+}
+
+extension ProfileViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+}
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let apps = UIApplication.shared
-    
     var programVar : String?
     var defaultProfileInfo = Connect(name: "Test Name", email: "TestEmail", phone: "Test Phone", facebookName: "", facebookId: "", instagramName: "", instagramId: "", snapchatName: "", snapchatId: "", twitterName: "", twitterId: "", linkedinName: "", linkedinId: "", soundcloudName: "", soundcloudId: "", youtubeName: "", youtubeId: "")
     
@@ -103,7 +113,6 @@ class ProfileViewController: UIViewController {
         linkedinNameView.text = profileInfo?.linkedinName ?? "Andrew Takao"
         soundcloudNameView.text = profileInfo?.soundcloudName ?? "Andrew Takao"
         youtubeNameView.text = profileInfo?.youtubeName ?? "Takao Productions"
-        
         
         let facebookTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.facebookTapped(sender:)))
         facebookView.addGestureRecognizer(facebookTap)

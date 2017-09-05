@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MinnoSwift/AddRemoveTableViewController.swift"
-            timestampString = "523679578.056994"
+            timestampString = "525997358.786066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MinnoSwift/SettingsTableViewController.swift"
-            timestampString = "525993416.241545"
+            timestampString = "525995315.310331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,12 +154,106 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MinnoSwift/SettingsTableViewController.swift"
-            timestampString = "525993110.398319"
+            timestampString = "525995315.310331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinnoSwift/SignUpViewController.swift"
+            timestampString = "526230591.240179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "SignUpViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MinnoSwift.SignUpViewController.(newUserRefHandle in _F0B435FA5C8F083EF033E0FB5D2AE9E9).getter : Swift.Optional&lt;Swift.UInt&gt;"
+                  moduleName = "MinnoSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewtakao/Desktop/MinnoSwift/MinnoSwift/SignUpViewController.swift"
+                  timestampString = "526004912.443929"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MinnoSwift.SignUpViewController.(newUserRefHandle in _F0B435FA5C8F083EF033E0FB5D2AE9E9).setter : Swift.Optional&lt;Swift.UInt&gt;"
+                  moduleName = "MinnoSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewtakao/Desktop/MinnoSwift/MinnoSwift/SignUpViewController.swift"
+                  timestampString = "526004912.447786"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "41">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MinnoSwift.SignUpViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; MinnoSwift.SignUpViewController"
+                  moduleName = "MinnoSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewtakao/Desktop/MinnoSwift/MinnoSwift/SignUpViewController.swift"
+                  timestampString = "526004912.450732"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "926">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MinnoSwift.SignUpViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MinnoSwift.SignUpViewController&gt;"
+                  moduleName = "MinnoSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewtakao/Desktop/MinnoSwift/MinnoSwift/SignUpViewController.swift"
+                  timestampString = "526004912.453972"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "822">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinnoSwift/SignUpViewController.swift"
+            timestampString = "526230591.240179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
