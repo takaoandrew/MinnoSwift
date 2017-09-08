@@ -20,7 +20,8 @@ class ProfilePictureViewController: UIViewController, UINavigationControllerDele
     
     @IBAction func btnClicked(_ sender: Any) {
         print("click")
-        chooseButton.setTitle("",for: .normal)
+//        chooseButton.setTitle("",for: .normal)
+        view.sendSubview(toBack: chooseButton)
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
             print("Button capture")
             

@@ -23,17 +23,38 @@ extension ProfileViewController: UISearchBarDelegate {
     }
 }
 
-
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    lazy var profilePictureViewController: ProfilePictureViewController = {
+        let storyboard = UIStoryboard(name: "5s", bundle: Bundle.main)
+        
+        var profilePictureController = storyboard.instantiateViewController(withIdentifier: "ProfilePictureViewController") as! ProfilePictureViewController
+        var profilePictureViewFrame: CGRect
+        if self.view.bounds.size.height >= 580 {
+            profilePictureViewFrame = CGRect(x:16, y:105, width:109, height:118)
+        }
+        else {
+            //            print("small picture")
+            profilePictureViewFrame = CGRect(x:35, y:105, width:90, height:57)
+        }
+        self.addViewControllerAsChildViewController(childViewController: profilePictureController, cGRect: profilePictureViewFrame)
+        return profilePictureController
+    }()
+    
     let apps = UIApplication.shared
-    var programVar : String?
+    
     var defaultProfileInfo = Connect(name: "Test Name", email: "TestEmail", phone: "Test Phone", facebookName: "", facebookId: "", instagramName: "", instagramId: "", snapchatName: "", snapchatId: "", twitterName: "", twitterId: "", linkedinName: "", linkedinId: "", soundcloudName: "", soundcloudId: "", youtubeName: "", youtubeId: "")
     
     var profileInfo : Connect?
     var privacyInfo : Connect?
     
-    //    var addRemoveTableViewController: AddRemoveTableViewController = AddRemoveTableViewController
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var connects = [Connect]()
+    var filteredConnects = [Connect]()
+    
+    @IBOutlet weak var connectTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var nameView: UILabel!
     @IBOutlet weak var facebookNameView: UILabel!
@@ -43,12 +64,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var linkedinNameView: UILabel!
     @IBOutlet weak var soundcloudNameView: UILabel!
     @IBOutlet weak var youtubeNameView: UILabel!
+    
     @IBOutlet weak var contactView: UIButton!
     @IBOutlet weak var echoView: UIButton!
     @IBOutlet weak var contactInformation: UILabel!
     @IBOutlet weak var connectView: UIButton!
     @IBOutlet weak var friendView: UIButton!
-    @IBOutlet weak var seemoreView: UIButton!
+    
     @IBOutlet weak var facebookView: UIView!
     @IBOutlet weak var instagramView: UIView!
     @IBOutlet weak var snapchatView: UIView!
@@ -56,7 +78,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var linkedinView: UIView!
     @IBOutlet weak var soundcloudView: UIView!
     @IBOutlet weak var youtubeView: UIView!
-    @IBOutlet weak var seelessView: UIButton!
+    
     @IBOutlet weak var chatContainerView: UIView!
     @IBOutlet weak var profilePictureContainerView: UIView!
     @IBOutlet weak var facebookYConstraint: NSLayoutConstraint!
@@ -66,44 +88,130 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var linkedinYConstraint: NSLayoutConstraint!
     @IBOutlet weak var ConnectButton: UIButton!
     
-    lazy var profilePictureViewController: ProfilePictureViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredConnects = connects.filter { connect in
+            return  connect.name.lowercased().contains(searchText.lowercased())
+        }
         
-        var profilePictureController = storyboard.instantiateViewController(withIdentifier: "ProfilePictureViewController") as! ProfilePictureViewController
-        var profilePictureViewFrame: CGRect
-        if self.view.bounds.size.height >= 580 {
-            profilePictureViewFrame = CGRect(x:16, y:105, width:109, height:118)
+        connectTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if !searchController.isActive {
+            return 0
+        }
+        else if searchController.searchBar.text != "" {
+            return filteredConnects.count
         }
         else {
-            print("small picture")
-            profilePictureViewFrame = CGRect(x:35, y:105, width:90, height:57)
+            return connects.count
         }
-        self.addViewControllerAsChildViewController(childViewController: profilePictureController, cGRect: profilePictureViewFrame)
-        return profilePictureController
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("should hide")
+        profilePictureContainerView.isHidden = true
+    }
+    
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        profilePictureContainerView.isHidden = false
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectCell", for: indexPath)
+        let connect: Connect
+        if searchController.isActive && searchController.searchBar.text != "" {
+            connect = filteredConnects[indexPath.row]
+        }
+        else {
+            connect = connects[indexPath.row]
+        }
+        cell.textLabel!.text = connect.name
+        cell.imageView?.image = #imageLiteral(resourceName: "avatar")
         
-    }()
+        return cell
+    }
     
-//    lazy var chatViewController: ChatViewController = {
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        
-//        var viewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-//        var chatViewFrame: CGRect
-//        
-//        if self.view.bounds.size.height >= 580 {
-//            chatViewFrame = CGRect(x:0, y:400, width:self.view.bounds.size.width, height:self.view.bounds.size.height-400)
-//        }
-//        else {
-//            //            print("small picture")
-//            chatViewFrame = CGRect(x:0, y:270, width:self.view.bounds.size.width, height:self.view.bounds.size.height-270)
-//        }
-//        
-//        self.addViewControllerAsChildViewController(childViewController: viewController, cGRect: chatViewFrame)
-//        return viewController
-//    }()
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        return
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("ViewDidLoad")
+        
+//        let userRef = Database.database().reference().child("users")
+//        userRef.observeSingleEvent(of: .value, with: { snapshot in
+//            let allUsers = snapshot.value as! Dictionary<String, Dictionary<String, String>>
+//            for name in allUsers {
+//                print(name.key)
+//            }
+//            
+//            
+//        })
+
+        var names = [String]()
+        let userRef = Database.database().reference().child("users")
+        userRef.observeSingleEvent(of: .value, with: { snapshot in
+            let allUsers = snapshot.value as! Dictionary<String, Dictionary<String, String>>
+            for name in allUsers {
+                names.append(name.key)
+            }
+            
+            for child in snapshot.children {
+                let tempRef = userRef.child(names.popLast()!)
+                tempRef.observeSingleEvent(of: .value, with: { snapshot in
+                    let currentUser = snapshot.value as! Dictionary<String, String>
+                    print("currentUserName")
+                    print(currentUser["name"]!)
+                    self.connects.append(Connect(
+                        name: currentUser["name"]!,
+                        email: currentUser["email"]!,
+                        phone: currentUser["phone"]!,
+                        facebookName: currentUser["facebookName"]!,
+                        facebookId: currentUser["facebookId"]!,
+                        instagramName: currentUser["instagramName"]!,
+                        instagramId: currentUser["instagramId"]!,
+                        snapchatName: currentUser["snapchatName"]!,
+                        snapchatId: currentUser["snapchatId"]!,
+                        twitterName: currentUser["twitterName"]!,
+                        twitterId: currentUser["twitterId"]!,
+                        linkedinName: currentUser["linkedinName"]!,
+                        linkedinId: currentUser["linkedinId"]!,
+                        soundcloudName: currentUser["soundcloudName"]!,
+                        soundcloudId: currentUser["soundcloudId"]!,
+                        youtubeName: currentUser["youtubeName"]!,
+                        youtubeId: currentUser["youtubeId"]!))
+                })
+            }
+
+        })
+
+        
+        
+        
+        connectTableView.backgroundColor = UIColor.clear
+        
+//        connects = [
+//            Connect(name:"Trevor Massey", email: "trevmass@gmail.com", phone: "123-456-7890",
+//                    facebookName: "trevor massey", facebookId: "1565426905",
+//                    instagramName: "trev_mass", instagramId: "trev_mass", snapchatName: "tmass9", snapchatId: "tmass9",
+//                    twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "trev_mass", linkedinId: "trev_mass",
+//                    soundcloudName: "trev_mass", soundcloudId: "trev_mass", youtubeName: "trev_mass", youtubeId: "trev_mass"),
+//            Connect(name:"Andrew Takao", email: "takaoandrew@gmail.com", phone: "631-398-9782",
+//                    facebookName: "Andrew Takao", facebookId: "661299413",
+//                    instagramName: "chocotako1", instagramId: "chocotako1", snapchatName: "chocotako", snapchatId: "chocotako",
+//                    twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "andrew-takao", linkedinId: "andrew-takao",
+//                    soundcloudName: "trev_mass", soundcloudId: "trev_mass", youtubeName: "Takao productions", youtubeId: "trev_mass")
+//        ]
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        connectTableView.tableHeaderView = searchController.searchBar
+        
         nameView.text = profileInfo?.name ?? "Andrew Takao"
         contactInformation.text = ((profileInfo?.email) ?? "takaoandrew@gmail.com") + "\r" + (profileInfo?.phone ?? "631-398-9782")
         facebookNameView.text = profileInfo?.facebookName ?? "takaoandrew"
@@ -116,53 +224,43 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let facebookTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.facebookTapped(sender:)))
         facebookView.addGestureRecognizer(facebookTap)
-        
         let instagramTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.instagramTapped(sender:)))
         instagramView.addGestureRecognizer(instagramTap)
-        
         let snapchatTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.snapchatTapped(sender:)))
         snapchatView.addGestureRecognizer(snapchatTap)
-        
         let twitterTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.twitterTapped(sender:)))
         twitterView.addGestureRecognizer(twitterTap)
-        
         let linkedinTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.linkedinTapped(sender:)))
         linkedinView.addGestureRecognizer(linkedinTap)
-        
         let soundcloudTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.soundcloudTapped(sender:)))
         soundcloudView.addGestureRecognizer(soundcloudTap)
-        
         let youtubeTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.youtubeTapped(sender:)))
         youtubeView.addGestureRecognizer(youtubeTap)
-        
-//        chatViewController.view.isHidden = false
-        
-        seemoreView.isHidden = true
-        seelessView.isHidden = true
         profilePictureViewController.view.isHidden = false
         
         let dismissKeyboardTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.dismissKeyboard))
-        
         view.addGestureRecognizer(dismissKeyboardTap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        searchBar.delegate = self
+        connectTableView.delegate = self
+        connectTableView.dataSource = self
+        view.bringSubview(toFront: connectTableView)
+//        view.sendSubview(toBack: profilePictureContainerView)
         
         connectView.titleLabel?.textAlignment = NSTextAlignment.center
         friendView.titleLabel?.textAlignment = NSTextAlignment.center
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        print("showing")
-        facebookView.isUserInteractionEnabled = false
-        instagramView.isUserInteractionEnabled = false
-        snapchatView.isUserInteractionEnabled = false
-        twitterView.isUserInteractionEnabled = false
-        linkedinView.isUserInteractionEnabled = false
-        soundcloudView.isUserInteractionEnabled = false
-        youtubeView.isUserInteractionEnabled = false
-//        view.bringSubview(toFront: chatViewController.view)
+//        profilePictureViewController.view.isHidden = true
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+//        profilePictureViewController.view.isHidden = false
+    }
     
     private func addViewControllerAsChildViewController(childViewController: UIViewController, cGRect: CGRect) {
         addChildViewController(childViewController)
@@ -172,19 +270,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         childViewController.didMove(toParentViewController: self)
     }
     
-    func dismissKeyboard() {
-        view.endEditing(true)
-        facebookView.isUserInteractionEnabled = true
-        instagramView.isUserInteractionEnabled = true
-        snapchatView.isUserInteractionEnabled = true
-        twitterView.isUserInteractionEnabled = true
-        linkedinView.isUserInteractionEnabled = true
-        soundcloudView.isUserInteractionEnabled = true
-        youtubeView.isUserInteractionEnabled = true
-//        view.sendSubview(toBack: chatViewController.view)
-        seelessClicked((Any).self)
-    }
-    
     func bumpUp(view: UIView)  {
         view.frame.origin.y -= 50
     }
@@ -192,7 +277,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func bumpDown(view: UIView)  {
         view.frame.origin.y += 50
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -204,13 +288,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     if  element["show"] == "hide" {
                         self.facebookView.isHidden = true
                         self.bumpUp(view: self.instagramView)
-                        self.bumpUp(view: self.seemoreView)
                         self.bumpUp(view: self.snapchatView)
                         self.bumpUp(view: self.twitterView)
                         self.bumpUp(view: self.linkedinView)
                         self.bumpUp(view: self.soundcloudView)
                         self.bumpUp(view: self.youtubeView)
-                        self.bumpUp(view: self.seelessView)
                     }
                     else {
                         self.facebookView.isHidden = false
@@ -219,13 +301,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 else if key == "instagram" {
                     if  element["show"] == "hide" {
                         self.instagramView.isHidden = true
-                        self.bumpUp(view: self.seemoreView)
                         self.bumpUp(view: self.snapchatView)
                         self.bumpUp(view: self.twitterView)
                         self.bumpUp(view: self.linkedinView)
                         self.bumpUp(view: self.soundcloudView)
                         self.bumpUp(view: self.youtubeView)
-                        self.bumpUp(view: self.seelessView)
                     }
                     else {
                         self.instagramView.isHidden = false
@@ -238,7 +318,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.bumpUp(view: self.linkedinView)
                         self.bumpUp(view: self.soundcloudView)
                         self.bumpUp(view: self.youtubeView)
-                        self.bumpUp(view: self.seelessView)
                     }
                     else {
                         self.snapchatView.isHidden = false
@@ -250,7 +329,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.bumpUp(view: self.linkedinView)
                         self.bumpUp(view: self.soundcloudView)
                         self.bumpUp(view: self.youtubeView)
-                        self.bumpUp(view: self.seelessView)
                     }
                     else {
                         self.twitterView.isHidden = false
@@ -261,7 +339,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.linkedinView.isHidden = true
                         self.bumpUp(view: self.soundcloudView)
                         self.bumpUp(view: self.youtubeView)
-                        self.bumpUp(view: self.seelessView)
                     }
                     else {
                         self.linkedinView.isHidden = false
@@ -271,7 +348,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     if element["show"] == "hide" {
                         self.soundcloudView.isHidden = true
                         self.bumpUp(view: self.youtubeView)
-                        self.bumpUp(view: self.seelessView)
                     }
                     else {
                         self.soundcloudView.isHidden = false
@@ -281,7 +357,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 else if key == "youtube" {
                     if element["show"] == "hide" {
                         self.youtubeView.isHidden = true
-                        self.bumpUp(view: self.seelessView)
                     }
                     else {
                         self.youtubeView.isHidden = false
@@ -373,10 +448,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         view.bringSubview(toFront: linkedinView)
         view.bringSubview(toFront: soundcloudView)
         view.bringSubview(toFront: youtubeView)
-        view.bringSubview(toFront: seemoreView)
-        
-        seelessClicked((Any).self)
-        
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -392,24 +463,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 if key == "facebook" {
                     if element["show"] == "hide" {
                         self.bumpDown(view: self.instagramView)
-                        self.bumpDown(view: self.seemoreView)
                         self.bumpDown(view: self.snapchatView)
                         self.bumpDown(view: self.twitterView)
                         self.bumpDown(view: self.linkedinView)
                         self.bumpDown(view: self.soundcloudView)
                         self.bumpDown(view: self.youtubeView)
-                        self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "instagram" {
                     if element["show"] == "hide" {
-                        self.bumpDown(view: self.seemoreView)
                         self.bumpDown(view: self.snapchatView)
                         self.bumpDown(view: self.twitterView)
                         self.bumpDown(view: self.linkedinView)
                         self.bumpDown(view: self.soundcloudView)
                         self.bumpDown(view: self.youtubeView)
-                        self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "snapchat" {
@@ -418,7 +485,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.bumpDown(view: self.linkedinView)
                         self.bumpDown(view: self.soundcloudView)
                         self.bumpDown(view: self.youtubeView)
-                        self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "twitter" {
@@ -426,25 +492,21 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.bumpDown(view: self.linkedinView)
                         self.bumpDown(view: self.soundcloudView)
                         self.bumpDown(view: self.youtubeView)
-                        self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "linkedin" {
                     if element["show"] == "hide" {
                         self.bumpDown(view: self.soundcloudView)
                         self.bumpDown(view: self.youtubeView)
-                        self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "soundcloud" {
                     if element["show"] == "hide" {
                         self.bumpDown(view: self.youtubeView)
-                        self.bumpDown(view: self.seelessView)
                     }
                 }
                 else if key == "youtube" {
                     if element["show"] == "hide" {
-                        self.bumpDown(view: self.seelessView)
                     }
                 }
             }
@@ -540,7 +602,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         ConnectButton.backgroundColor = UIColor.green
     }
     
-    
     @IBAction func contactClicked(_ sender: Any) {
         contactInformation.isHidden = false
         contactView.isHidden = true
@@ -548,26 +609,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func echoClicked(_ sender: Any) {
         
-    }
-    
-    @IBAction func seemoreClicked(_ sender: Any) {
-        view.bringSubview(toFront: snapchatView)
-        view.bringSubview(toFront: twitterView)
-        view.bringSubview(toFront: linkedinView)
-        view.bringSubview(toFront: soundcloudView)
-        view.bringSubview(toFront: youtubeView)
-        view.sendSubview(toBack: seemoreView)
-        view.bringSubview(toFront: seelessView)
-    }
-    
-    @IBAction func seelessClicked(_ sender: Any) {
-        view.sendSubview(toBack: snapchatView)
-        view.sendSubview(toBack: twitterView)
-        view.sendSubview(toBack: linkedinView)
-        view.sendSubview(toBack: soundcloudView)
-        view.sendSubview(toBack: youtubeView)
-        view.sendSubview(toBack: seelessView)
-        view.bringSubview(toFront: seemoreView)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -578,4 +619,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }
     }
+    
+    
+
 }

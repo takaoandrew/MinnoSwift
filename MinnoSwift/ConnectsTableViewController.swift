@@ -50,6 +50,7 @@ class ConnectsTableViewController: UITableViewController {
             twitterName: "trev_mass", twitterId: "trev_mass", linkedinName: "andrew-takao", linkedinId: "andrew-takao",
             soundcloudName: "trev_mass", soundcloudId: "trev_mass", youtubeName: "Takao productions", youtubeId: "trev_mass")
         ]
+        
         searchController.searchResultsUpdater = self as? UISearchResultsUpdating
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -109,7 +110,6 @@ class ConnectsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "trevorSegue" {
             if let toViewController = segue.destination as? ProfileViewController {
-                toViewController.programVar = "Hello World"
                 toViewController.profileInfo = connects[0]
             }
         }
