@@ -1,8 +1,8 @@
 //
-//  ProfileViewController.swift
+//  ConnectViewController.swift
 //  MinnoSwift
 //
-//  Created by Andrew Takao on 6/25/17.
+//  Created by Andrew Takao on 9/11/17.
 //  Copyright © 2017 Andrew Takao. All rights reserved.
 //
 
@@ -11,19 +11,21 @@ import Firebase
 import JSQMessagesViewController
 import Appz
 
-extension ProfileViewController: UISearchResultsUpdating {
+
+extension ConnectViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 }
 
-extension ProfileViewController: UISearchBarDelegate {
+extension ConnectViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ConnectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     
     var ref:DatabaseReference?
     
@@ -56,6 +58,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var connects = [Connect]()
     var filteredConnects = [Connect]()
     
+    
+    
     @IBOutlet weak var connectTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -67,6 +71,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var linkedinNameView: UILabel!
     @IBOutlet weak var soundcloudNameView: UILabel!
     @IBOutlet weak var youtubeNameView: UILabel!
+    
     
     @IBOutlet weak var contactView: UIButton!
     @IBOutlet weak var echoView: UIButton!
@@ -124,7 +129,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectCell", for: indexPath)
+        //        let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectCell", for: indexPath)
         let cell: SearchTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ConnectCell", for: indexPath) as! SearchTableViewCell
         
         cell.imageView!.layer.cornerRadius = 20
@@ -149,7 +154,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         imageRef.getData(maxSize: 10 * 10024 * 10024) { data, error in
-            if let error = error {
+            if error != nil {
                 print("ohno")
                 // Uh-oh, an error occurred!
             } else {
@@ -159,8 +164,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 
             }
         }
-//        cell.imageView!.image?.draw(in: CGRect(x: 0, y: 0, width: 50, height: 50))
-//        cell.imageView?.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
+        //        cell.imageView!.image?.draw(in: CGRect(x: 0, y: 0, width: 50, height: 50))
+        //        cell.imageView?.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
         
         return cell
     }
@@ -241,7 +246,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         print("ViewDidLoad")
         
-
+        
         var names = [String]()
         let userRef = Database.database().reference().child("users")
         userRef.observeSingleEvent(of: .value, with: { snapshot in
@@ -254,8 +259,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 let tempRef = userRef.child(names.popLast()!)
                 tempRef.observeSingleEvent(of: .value, with: { snapshot in
                     let currentUser = snapshot.value as! Dictionary<String, String>
-//                    print("currentUserName")
-//                    print(currentUser["name"]!)
+                    //                    print("currentUserName")
+                    //                    print(currentUser["name"]!)
                     self.connects.append(Connect(
                         name: currentUser["name"]!,
                         email: currentUser["email"]!,
@@ -277,12 +282,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                         profileImage: currentUser["profileImage"]!))
                 })
             }
-
+            
         })
         
         connectTableView.backgroundColor = UIColor.clear
         
-        searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = self as! UISearchResultsUpdating
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         connectTableView.tableHeaderView = searchController.searchBar
@@ -314,19 +319,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         profilePictureViewController.view.isHidden = false
         
         let dismissKeyboardTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.dismissKeyboard))
-//        view.addGestureRecognizer(dismissKeyboardTap)
+        view.addGestureRecognizer(dismissKeyboardTap)
         connectTableView.removeGestureRecognizer(dismissKeyboardTap)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
-        searchBar.delegate = self
+        searchBar.delegate = self as! UISearchBarDelegate
         connectTableView.delegate = self
         connectTableView.dataSource = self
         view.bringSubview(toFront: connectTableView)
         
         connectView.titleLabel?.textAlignment = NSTextAlignment.center
         friendView.titleLabel?.textAlignment = NSTextAlignment.center
-
+        
         
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
@@ -337,7 +342,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         imageRef.getData(maxSize: 10 * 10024 * 10024) { data, error in
-            if let error = error {
+            if error != nil {
                 print("ohno")
                 // Uh-oh, an error occurred!
             } else {
@@ -349,13 +354,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func keyboardWillShow(notification: NSNotification) {
         view.bringSubview(toFront: connectTableView)
-//        profilePictureViewController.view.isHidden = true
+        //        profilePictureViewController.view.isHidden = true
     }
     
     func dismissKeyboard() {
-//        view.sendSubview(toBack: connectTableView)
+        //        view.sendSubview(toBack: connectTableView)
         view.endEditing(true)
-//        profilePictureViewController.view.isHidden = false
+        //        profilePictureViewController.view.isHidden = false
     }
     
     private func addViewControllerAsChildViewController(childViewController: UIViewController, cGRect: CGRect) {
@@ -386,7 +391,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         else {
             print("picture doesn't exist")
         }
-    
+        
         uploadMedia() { url in
             if url != nil {
                 self.ref?.child("Posts").childByAutoId().setValue([
@@ -395,8 +400,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     ])
             }
         }
-
-    
+        
+        
         let ref = Database.database().reference()
         ref.child("add_remove_settings").observeSingleEvent(of: .value, with: { snapshot in
             let settingsData = snapshot.value as! Dictionary<String, Dictionary<String, String>>
@@ -490,7 +495,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.facebookNameView?.textColor = UIColor.gray
                         self.facebookNameView?.text = "Private"
                     }
-                    else {                        
+                    else {
                         self.facebookNameView?.textColor = UIColor.black
                         self.facebookNameView.text = self.profileInfo?.facebookName ?? "takaoandrew"
                     }
@@ -740,5 +745,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-
+    
 }
+

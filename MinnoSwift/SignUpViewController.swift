@@ -165,7 +165,7 @@ class SignUpViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let connect = Connect(name: NameField.text!, email: EmailField.text!, phone: PhoneField.text!, facebookName: FacebookField.text!, facebookId: FacebookField.text!, instagramName: InstagramField.text!, instagramId: InstagramField.text!, snapchatName: SnapchatField.text!, snapchatId: SnapchatField.text!, twitterName: TwitterField.text!, twitterId: TwitterField.text!, linkedinName: LinkedinField.text!, linkedinId: LinkedinField.text!, soundcloudName: SoundcloudField.text!, soundcloudId: SoundcloudField.text!, youtubeName: YoutubeField.text!, youtubeId: YoutubeField.text!)
+        let connect = Connect(name: NameField.text!, email: EmailField.text!, phone: PhoneField.text!, facebookName: FacebookField.text!, facebookId: FacebookField.text!, instagramName: InstagramField.text!, instagramId: InstagramField.text!, snapchatName: SnapchatField.text!, snapchatId: SnapchatField.text!, twitterName: TwitterField.text!, twitterId: TwitterField.text!, linkedinName: LinkedinField.text!, linkedinId: LinkedinField.text!, soundcloudName: SoundcloudField.text!, soundcloudId: SoundcloudField.text!, youtubeName: YoutubeField.text!, youtubeId: YoutubeField.text!, profileImage: NameField.text!+".png")
         
         if let toViewController = segue.destination as? ProfileViewController {
             toViewController.profileInfo = connect

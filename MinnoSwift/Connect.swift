@@ -26,11 +26,12 @@ class Connect: NSObject {
     var soundcloudId : String
     var youtubeName : String
     var youtubeId : String
+    var profileImage : String
     
     init(name: String, email: String, phone: String, facebookName: String, facebookId: String,
          instagramName: String, instagramId: String, snapchatName: String, snapchatId: String,
          twitterName: String, twitterId: String, linkedinName: String, linkedinId: String,
-         soundcloudName: String, soundcloudId: String, youtubeName: String, youtubeId: String) {
+         soundcloudName: String, soundcloudId: String, youtubeName: String, youtubeId: String, profileImage: String) {
         self.name = name
         self.email = email
         self.phone = phone
@@ -48,7 +49,7 @@ class Connect: NSObject {
         self.soundcloudId = soundcloudId
         self.youtubeName = youtubeName
         self.youtubeId = youtubeId
-        
+        self.profileImage = profileImage
     }
 
 }

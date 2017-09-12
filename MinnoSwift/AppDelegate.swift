@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window!.rootViewController = viewcontroller
             
         } else {
-            print("small iPhone")
+//            print("small iPhone")
             var mainView: UIStoryboard!
             mainView = UIStoryboard(name: "5s", bundle: nil)
             let viewcontroller : UIViewController = mainView.instantiateViewController(withIdentifier: "HomeNavigationController") as UIViewController

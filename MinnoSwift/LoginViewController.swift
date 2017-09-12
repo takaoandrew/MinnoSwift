@@ -51,7 +51,8 @@ class LoginViewController: UIViewController {
                         soundcloudName: currentUser["soundcloudName"]!,
                         soundcloudId: currentUser["soundcloudId"]!,
                         youtubeName: currentUser["youtubeName"]!,
-                        youtubeId: currentUser["youtubeId"]!)
+                        youtubeId: currentUser["youtubeId"]!,
+                        profileImage: currentUser["profileImage"]!)
                     
                     self.performSegue(withIdentifier: "login", sender: self)
                 })
