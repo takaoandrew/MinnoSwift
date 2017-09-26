@@ -33,11 +33,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         var profilePictureController = storyboard.instantiateViewController(withIdentifier: "ProfilePictureViewController") as! ProfilePictureViewController
         var profilePictureViewFrame: CGRect
         if self.view.bounds.size.height >= 580 {
-            profilePictureViewFrame = CGRect(x:16, y:105, width:109, height:118)
+            profilePictureViewFrame = CGRect(x:10, y:105, width:109, height:118)
         }
         else {
-            //            print("small picture")
-            profilePictureViewFrame = CGRect(x:35, y:105, width:90, height:57)
+//                        print("small picture")
+            profilePictureViewFrame = CGRect(x:15, y:110, width:50, height:50)
         }
         self.addViewControllerAsChildViewController(childViewController: profilePictureController, cGRect: profilePictureViewFrame)
         return profilePictureController
@@ -59,6 +59,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var connectTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var phoneNameView: UILabel!
     @IBOutlet weak var nameView: UILabel!
     @IBOutlet weak var facebookNameView: UILabel!
     @IBOutlet weak var instagramNameView: UILabel!
@@ -67,13 +68,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var linkedinNameView: UILabel!
     @IBOutlet weak var soundcloudNameView: UILabel!
     @IBOutlet weak var youtubeNameView: UILabel!
-    
-    @IBOutlet weak var contactView: UIButton!
-    @IBOutlet weak var echoView: UIButton!
-    @IBOutlet weak var contactInformation: UILabel!
+ 
     @IBOutlet weak var connectView: UIButton!
-    @IBOutlet weak var friendView: UIButton!
     
+    @IBOutlet weak var phoneView: UIView!
     @IBOutlet weak var facebookView: UIView!
     @IBOutlet weak var instagramView: UIView!
     @IBOutlet weak var snapchatView: UIView!
@@ -82,14 +80,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var soundcloudView: UIView!
     @IBOutlet weak var youtubeView: UIView!
     
-    @IBOutlet weak var chatContainerView: UIView!
-    @IBOutlet weak var profilePictureContainerView: UIView!
-    @IBOutlet weak var facebookYConstraint: NSLayoutConstraint!
-    @IBOutlet weak var instagramYConstraint: NSLayoutConstraint!
-    @IBOutlet weak var snapchatYConstraint: NSLayoutConstraint!
-    @IBOutlet weak var twitterYConstraint: NSLayoutConstraint!
-    @IBOutlet weak var linkedinYConstraint: NSLayoutConstraint!
     @IBOutlet weak var ConnectButton: UIButton!
+//    @IBOutlet weak var profilePictureContainerView: UIView!
     
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
@@ -113,23 +105,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("should hide")
-        profilePictureContainerView.isHidden = true
-    }
-    
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        profilePictureContainerView.isHidden = false
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectCell", for: indexPath)
         let cell: SearchTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ConnectCell", for: indexPath) as! SearchTableViewCell
-        
         cell.imageView!.layer.cornerRadius = 20
-        cell.imageView!.clipsToBounds = true
-        
+//        cell.imageView!.clipsToBounds = true
         let connect: Connect
         if searchController.isActive && searchController.searchBar.text != "" {
             connect = filteredConnects[indexPath.row]
@@ -138,7 +118,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             connect = connects[indexPath.row]
         }
         cell.textLabel!.text = connect.name
-        
         
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
@@ -149,26 +128,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         imageRef.getData(maxSize: 10 * 10024 * 10024) { data, error in
-            if let error = error {
-                print("ohno")
-                // Uh-oh, an error occurred!
-            } else {
+            if error == nil {
                 // Data for "images/island.jpg" is returned
                 let image = UIImage(data: data!)
                 cell.imageView?.image = image
-                
             }
         }
-//        cell.imageView!.image?.draw(in: CGRect(x: 0, y: 0, width: 50, height: 50))
-//        cell.imageView?.frame = CGRect(x: 5, y: 5, width: 50, height: 50)
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("yup")
         let cell: SearchTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ConnectCell", for: indexPath) as! SearchTableViewCell
-        let name = cell.textLabel?.text!
+        let name = cell.textLabel?.text
         self.connectFromList = defaultProfileInfo
         let userRef = Database.database().reference().child("users")
         userRef.observeSingleEvent(of: .value, with: { snapshot in
@@ -237,11 +208,29 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    func getConnect() {
+        //return connect from current user
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ViewDidLoad")
+        phoneView.layer.borderWidth = 2
+        phoneView.layer.borderColor = UIColor.black.cgColor
+        facebookView.layer.borderWidth = 2
+        facebookView.layer.borderColor = UIColor.black.cgColor
+        instagramView.layer.borderWidth = 2
+        instagramView.layer.borderColor = UIColor.black.cgColor
+        snapchatView.layer.borderWidth = 2
+        snapchatView.layer.borderColor = UIColor.black.cgColor
+        twitterView.layer.borderWidth = 2
+        twitterView.layer.borderColor = UIColor.black.cgColor
+        linkedinView.layer.borderWidth = 2
+        linkedinView.layer.borderColor = UIColor.black.cgColor
+        soundcloudView.layer.borderWidth = 2
+        soundcloudView.layer.borderColor = UIColor.black.cgColor
+        youtubeView.layer.borderWidth = 2
+        youtubeView.layer.borderColor = UIColor.black.cgColor
         
-
         var names = [String]()
         let userRef = Database.database().reference().child("users")
         userRef.observeSingleEvent(of: .value, with: { snapshot in
@@ -254,8 +243,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 let tempRef = userRef.child(names.popLast()!)
                 tempRef.observeSingleEvent(of: .value, with: { snapshot in
                     let currentUser = snapshot.value as! Dictionary<String, String>
-//                    print("currentUserName")
-//                    print(currentUser["name"]!)
                     self.connects.append(Connect(
                         name: currentUser["name"]!,
                         email: currentUser["email"]!,
@@ -282,13 +269,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         connectTableView.backgroundColor = UIColor.clear
         
+        searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         connectTableView.tableHeaderView = searchController.searchBar
         
+        phoneNameView.text = profileInfo?.phone ?? "631-398-9782"
         nameView.text = profileInfo?.name ?? "Andrew Takao"
-        contactInformation.text = ((profileInfo?.email) ?? "takaoandrew@gmail.com") + "\r" + (profileInfo?.phone ?? "631-398-9782")
+        
         facebookNameView.text = profileInfo?.facebookName ?? "takaoandrew"
         instagramNameView.text = profileInfo?.instagramName ?? "andrewtakao"
         snapchatNameView.text = profileInfo?.snapchatName ?? "chocotako"
@@ -297,6 +286,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         soundcloudNameView.text = profileInfo?.soundcloudName ?? "Andrew Takao"
         youtubeNameView.text = profileInfo?.youtubeName ?? "Takao Productions"
         
+        let phoneTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.phoneTapped(sender:)))
+        phoneView.addGestureRecognizer(phoneTap)
         let facebookTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.facebookTapped(sender:)))
         facebookView.addGestureRecognizer(facebookTap)
         let instagramTap = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.instagramTapped(sender:)))
@@ -313,20 +304,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         youtubeView.addGestureRecognizer(youtubeTap)
         profilePictureViewController.view.isHidden = false
         
-        let dismissKeyboardTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.dismissKeyboard))
+//        let dismissKeyboardTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.dismissKeyboard))
 //        view.addGestureRecognizer(dismissKeyboardTap)
-        connectTableView.removeGestureRecognizer(dismissKeyboardTap)
+//        connectTableView.removeGestureRecognizer(dismissKeyboardTap)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillDisappear), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         searchBar.delegate = self
         connectTableView.delegate = self
         connectTableView.dataSource = self
-        view.bringSubview(toFront: connectTableView)
-        
-        connectView.titleLabel?.textAlignment = NSTextAlignment.center
-        friendView.titleLabel?.textAlignment = NSTextAlignment.center
-
+        view.bringSubview(toFront: ConnectButton)
         
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
@@ -337,25 +326,29 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         imageRef.getData(maxSize: 10 * 10024 * 10024) { data, error in
-            if let error = error {
-                print("ohno")
-                // Uh-oh, an error occurred!
-            } else {
+            if error == nil {
                 let image = UIImage(data: data!)
                 self.profilePictureViewController.imageView.image = image
             }
         }
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        view.bringSubview(toFront: connectTableView)
-//        profilePictureViewController.view.isHidden = true
+    @IBAction func Echo(_ sender: Any) {
+        keyboardWillShow()
     }
     
-    func dismissKeyboard() {
-//        view.sendSubview(toBack: connectTableView)
-        view.endEditing(true)
-//        profilePictureViewController.view.isHidden = false
+    @IBAction func Hide(_ sender: Any) {
+        keyboardWillDisappear()
+    }
+    
+    func keyboardWillShow() {
+        profilePictureViewController.view.isHidden = true
+        view.sendSubview(toBack: ConnectButton)
+    }
+    
+    func keyboardWillDisappear() {
+        view.bringSubview(toFront: ConnectButton)
+        profilePictureViewController.view.isHidden = false
     }
     
     private func addViewControllerAsChildViewController(childViewController: UIViewController, cGRect: CGRect) {
@@ -376,8 +369,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print("view will appear")
+        print("Here are some dimensions")
+        print(searchController.view.frame.origin.y)
+        print(connectTableView.frame.origin.y)
+//        print("view will appear")
         let profilePicture = profilePictureViewController.imageView?.image
         
         if (profilePicture != nil) {
@@ -390,19 +385,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         uploadMedia() { url in
             if url != nil {
                 self.ref?.child("Posts").childByAutoId().setValue([
-                    
                     "newurl" : url!
                     ])
             }
         }
-
-    
+        
         let ref = Database.database().reference()
         ref.child("add_remove_settings").observeSingleEvent(of: .value, with: { snapshot in
             let settingsData = snapshot.value as! Dictionary<String, Dictionary<String, String>>
             for (key, element) in settingsData {
                 if key == "facebook" {
-                    if  element["show"] == "hide" {
+                    if element["show"] == "hide" {
                         self.facebookView.isHidden = true
                         self.bumpUp(view: self.instagramView)
                         self.bumpUp(view: self.snapchatView)
@@ -482,21 +475,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
             }
         })
+        print("before privacty")
+        
         ref.child("privacy_settings").observeSingleEvent(of: .value, with: { snapshot in
             let settingsData = snapshot.value as! Dictionary<String, Dictionary<String, String>>
             for (key, element) in settingsData {
                 if key == "facebook" {
-                    if  element["show"] == "hide" {
+                    if  element["show"] == "private" {
+                        print("facebook private")
                         self.facebookNameView?.textColor = UIColor.gray
                         self.facebookNameView?.text = "Private"
                     }
-                    else {                        
+                    else {
+                        print("facebook public")
                         self.facebookNameView?.textColor = UIColor.black
                         self.facebookNameView.text = self.profileInfo?.facebookName ?? "takaoandrew"
                     }
                 }
                 else if key == "instagram" {
-                    if  element["show"] == "hide" {
+                    if  element["show"] == "private" {
                         self.instagramNameView?.textColor = UIColor.gray
                         self.instagramNameView?.text = "Private"
                     }
@@ -506,7 +503,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     }
                 }
                 else if key == "snapchat" {
-                    if  element["show"] == "hide" {
+                    if  element["show"] == "private" {
                         self.snapchatNameView?.textColor = UIColor.gray
                         self.snapchatNameView?.text = "Private"
                     }
@@ -516,7 +513,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     }
                 }
                 else if key == "twitter" {
-                    if  element["show"] == "hide" {
+                    if  element["show"] == "private" {
                         self.twitterNameView?.textColor = UIColor.gray
                         self.twitterNameView?.text = "Private"
                     }
@@ -526,7 +523,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     }
                 }
                 else if key == "linkedin" {
-                    if  element["show"] == "hide" {
+                    if  element["show"] == "private" {
                         self.linkedinNameView?.textColor = UIColor.gray
                         self.linkedinNameView?.text = "Private"
                     }
@@ -536,7 +533,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     }
                 }
                 else if key == "soundcloud" {
-                    if element["show"] == "hide" {
+                    if element["show"] == "private" {
                         self.soundcloudNameView?.textColor = UIColor.gray
                         self.soundcloudNameView?.text = "Private"
                     }
@@ -547,7 +544,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     
                 }
                 else if key == "youtube" {
-                    if element["show"] == "hide" {
+                    if element["show"] == "private" {
                         self.youtubeNameView?.textColor = UIColor.gray
                         self.youtubeNameView?.text = "Private"
                     }
@@ -558,13 +555,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
             }
         })
-        view.bringSubview(toFront: facebookView)
-        view.bringSubview(toFront: instagramView)
-        view.bringSubview(toFront: snapchatView)
-        view.bringSubview(toFront: twitterView)
-        view.bringSubview(toFront: linkedinView)
-        view.bringSubview(toFront: soundcloudView)
-        view.bringSubview(toFront: youtubeView)
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -633,6 +623,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         // Show the navigation bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    
+    func phoneTapped(sender:UITapGestureRecognizer) {
+        print("PHONE")
+        guard let number = URL(string: "tel://" + phoneNameView.text!) else { return }
+//        let telephoneURL = "tel://" + phoneNameView.text!
+        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+    }
+
     
     func facebookTapped(sender:UITapGestureRecognizer) {
         //        let facebookHooks = "fb://profile/661299413"
@@ -713,28 +711,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         //        apps.open(Applications.Linkedin(), action: .open)
     }
     
-    
     @IBAction func ConnectClicked(_ sender: Any) {
+        print("clickedconnect")
         ConnectButton.setTitle("Connected", for: .normal)
         ConnectButton.backgroundColor = UIColor.green
     }
     
-    @IBAction func contactClicked(_ sender: Any) {
-        contactInformation.isHidden = false
-        contactView.isHidden = true
-    }
-    
-    @IBAction func echoClicked(_ sender: Any) {
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let toViewController = segue.destination as? EchoViewController {
-            if segue.identifier == "echoSegue" {
-                toViewController.profileInfo = self.profileInfo ?? defaultProfileInfo
-            }
-            
-        }
         if let toViewController = segue.destination as? ProfileViewController {
             toViewController.profileInfo = self.connectFromList
         }

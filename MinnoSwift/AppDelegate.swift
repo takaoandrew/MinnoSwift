@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         let bounds: CGRect = UIScreen.main.bounds
         let screenHeight: CGFloat = bounds.size.height
-        var deviceFamily: String
+//        var deviceFamily: String
         
         var mainView: UIStoryboard!
         mainView = UIStoryboard(name: "Main", bundle: nil)
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if screenHeight >= 580  {
             print("big iPhone")
-            deviceFamily = "iPhoneOriginal"
+//            deviceFamily = "iPhoneOriginal"
             // Load Storyboard with name: iPhone4
             var mainView: UIStoryboard!
             mainView = UIStoryboard(name: "Main", bundle: nil)
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if screenHeight == 920 {
                 
-                deviceFamily = "Pad"
+//                deviceFamily = "Pad"
                 // Load Storyboard with name: ipad
                 var mainView: UIStoryboard!
                 mainView = UIStoryboard(name: "IpadStoryboard", bundle: nil)

@@ -194,6 +194,7 @@ class SignUpViewController: UIViewController {
             tempRef.child("soundcloudId").setValue(connect.soundcloudId)
             tempRef.child("youtubeName").setValue(connect.youtubeName)
             tempRef.child("youtubeId").setValue(connect.youtubeId)
+            tempRef.child("profileImage").setValue(connect.profileImage)
             
         })
         

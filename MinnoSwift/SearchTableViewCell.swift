@@ -27,7 +27,7 @@ class SearchTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         // Customize imageView like you need
-        self.imageView?.frame = CGRect(x: 10, y: 0, width: 40, height: 40)
+        self.imageView?.frame = CGRect(x: 10, y: 5, width: 40, height: 40)
         self.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         // Costomize other elements
         self.textLabel?.frame = CGRect(x: 80, y: (self.frame.height-20)/2, width: self.frame.width - 45, height: 20)

@@ -21,15 +21,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvV-zc-WuR">
+                                <rect key="frame" x="170" y="165" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Connect">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="ConnectClicked:" destination="fbi-hG-M5T" eventType="touchUpInside" id="YX3-4C-QJZ"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="j4C-hf-hJE">
-                                <rect key="frame" x="135" y="5" width="40" height="40"/>
+                                <rect key="frame" x="135" y="9" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed" translatesAutoresizingMaskIntoConstraints="NO" id="al5-Sj-bcf">
-                                <rect key="frame" x="284" y="10" width="30" height="30"/>
+                                <rect key="frame" x="284" y="17" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwB-sd-Inl">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwB-sd-Inl">
                                 <rect key="frame" x="188" y="225" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,12 +50,72 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="echoClicked:" destination="fbi-hG-M5T" eventType="touchUpInside" id="mE9-98-iKs"/>
-                                    <segue destination="8Qd-Vi-znb" kind="show" identifier="echoSegue" id="32a-yI-71c"/>
+                                    <action selector="Echo:" destination="fbi-hG-M5T" eventType="touchUpInside" id="9gx-OR-Cfp"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="takaoandrew@gmail.com 631-398-9782" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8g-tw-DKn">
+                                <rect key="frame" x="16" y="220" width="159" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jh0-cp-yEZ">
+                                <rect key="frame" x="46" y="225" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Contact">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="Hide:" destination="fbi-hG-M5T" eventType="touchUpInside" id="Mmf-2q-tB5"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eva-7i-wYl">
+                                <rect key="frame" x="309" y="629" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjm-RW-RJo" userLabel="Settings View">
+                                <rect key="frame" x="10" y="17" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="settings"/>
+                                <connections>
+                                    <segue destination="p1C-UV-tMi" kind="show" id="cxL-La-C5w"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Andrew Takao" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SI0-7Z-zs8">
+                                <rect key="frame" x="125" y="125" width="187" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="A1c-3t-vuC">
+                                <rect key="frame" x="150" y="135" width="76" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Connects 10">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="A32-V0-uml" kind="show" id="nQZ-w7-dmD"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sP6-zd-95N">
+                                <rect key="frame" x="243" y="135" width="58" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Friends 10">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V69-3V-u3T">
-                                <rect key="frame" x="0.0" y="268" width="322" height="50"/>
+                                <rect key="frame" x="0.0" y="268" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="XpB-DZ-adr">
@@ -57,19 +129,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 Mutual" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wb-B3-lzY">
-                                        <rect key="frame" x="215" y="15" width="99" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rs2-gT-y4m">
+                                        <rect key="frame" x="245" y="10" width="67" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Connect"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84878690199816553" green="1" blue="0.98295514866030786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xo0-TS-IMo">
-                                <rect key="frame" x="0.0" y="318" width="322" height="50"/>
+                                <rect key="frame" x="0.0" y="318" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="BCj-2Y-HsW">
@@ -83,13 +153,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12 Mutual" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyO-6J-3IZ">
-                                        <rect key="frame" x="215" y="15" width="99" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEI-2S-ulJ">
+                                        <rect key="frame" x="245" y="10" width="67" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Connect"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84878690199816553" green="1" blue="0.98295514866030786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -109,13 +177,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12 Mutual" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5z-PP-om0">
-                                        <rect key="frame" x="215" y="15" width="99" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTC-KM-34E">
+                                        <rect key="frame" x="245" y="10" width="67" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Connect"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84878690199816553" green="1" blue="0.98295514866030786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,19 +201,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12 Mutual" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaC-VB-bhl">
-                                        <rect key="frame" x="215" y="15" width="99" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72U-97-ZdS">
+                                        <rect key="frame" x="245" y="10" width="67" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Connect"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84878690199816553" green="1" blue="0.98295514866030786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y0Y-hh-7d2">
-                                <rect key="frame" x="0.0" y="468" width="322" height="50"/>
+                                <rect key="frame" x="0.0" y="468" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="linkedin" translatesAutoresizingMaskIntoConstraints="NO" id="haZ-kB-JqM">
@@ -161,80 +225,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12 Mutual" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqn-sK-Jad">
-                                        <rect key="frame" x="215" y="15" width="99" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLl-bN-wHM">
+                                        <rect key="frame" x="245" y="10" width="67" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Connect"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84878690199816553" green="1" blue="0.98295514866030786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="takaoandrew@gmail.com 631-398-9782" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8g-tw-DKn">
-                                <rect key="frame" x="16" y="220" width="159" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jh0-cp-yEZ">
-                                <rect key="frame" x="46" y="225" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Contact">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="contactClicked:" destination="fbi-hG-M5T" eventType="touchUpInside" id="YwP-bt-ulG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eva-7i-wYl">
-                                <rect key="frame" x="309" y="629" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Send">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjm-RW-RJo" userLabel="Settings View">
-                                <rect key="frame" x="10" y="10" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="settings"/>
-                                <connections>
-                                    <segue destination="p1C-UV-tMi" kind="show" id="cxL-La-C5w"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Andrew Takao" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SI0-7Z-zs8">
-                                <rect key="frame" x="133" y="114" width="187" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="A1c-3t-vuC">
-                                <rect key="frame" x="150" y="135" width="76" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Connects 10">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="A32-V0-uml" kind="show" id="nQZ-w7-dmD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sP6-zd-95N">
-                                <rect key="frame" x="243" y="135" width="58" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Friends 10">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-xI-xMa" userLabel="Soundcloud View">
-                                <rect key="frame" x="0.0" y="518" width="322" height="50"/>
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="soundcloud" translatesAutoresizingMaskIntoConstraints="NO" id="BhN-qJ-2ce">
@@ -248,13 +249,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12 Mutual" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG8-uI-TWB">
-                                        <rect key="frame" x="215" y="15" width="99" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNt-tt-LrK">
+                                        <rect key="frame" x="245" y="10" width="67" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Connect"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84878690199999995" green="1" blue="0.9829551487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -274,40 +273,26 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12 Mutual" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9x-im-aGj">
-                                        <rect key="frame" x="215" y="15" width="99" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4F-Jz-vaG">
+                                        <rect key="frame" x="245" y="10" width="67" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Connect"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84878690199999995" green="1" blue="0.9829551487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvV-zc-WuR">
-                                <rect key="frame" x="177" y="180" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Connect">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.2107449384" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="ConnectClicked:" destination="fbi-hG-M5T" eventType="touchUpInside" id="9Z9-AD-eSl"/>
-                                </connections>
-                            </button>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NrD-TK-Tde">
-                                <rect key="frame" x="0.0" y="48" width="320" height="213"/>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="top" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" directionalLockEnabled="YES" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="NrD-TK-Tde">
+                                <rect key="frame" x="0.0" y="55" width="320" height="206"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="8Rl-Ue-79O">
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="hi4-1R-GIh">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectCell" rowHeight="50" id="viU-hP-ff0" customClass="SearchTableViewCell" customModule="MinnoSwift" customModuleProvider="target">
+                                    <tableViewCell hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectCell" id="viU-hP-ff0" customClass="SearchTableViewCell" customModule="MinnoSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="100" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="viU-hP-ff0" id="e3y-3Q-OG5">
@@ -318,37 +303,54 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JQd-Oz-nLB">
+                                <rect key="frame" x="0.0" y="218" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="1SO-jc-0mc">
+                                        <rect key="frame" x="8" y="5" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="631-398-9782" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enm-NY-rTu" userLabel="PhoneNumberView">
+                                        <rect key="frame" x="73" y="15" width="99" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IH1-Qp-atj">
+                                        <rect key="frame" x="245" y="10" width="67" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Connect"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.84878690199999995" green="1" blue="0.9829551487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="ConnectButton" destination="dvV-zc-WuR" id="PaB-FO-n4g"/>
+                        <outlet property="ConnectButton" destination="dvV-zc-WuR" id="Saa-uT-5Id"/>
                         <outlet property="connectTableView" destination="NrD-TK-Tde" id="gpa-DA-inQ"/>
                         <outlet property="connectView" destination="A1c-3t-vuC" id="U9G-NI-loY"/>
-                        <outlet property="contactInformation" destination="b8g-tw-DKn" id="rJd-LK-RyB"/>
-                        <outlet property="contactView" destination="jh0-cp-yEZ" id="Tfm-UQ-wAJ"/>
-                        <outlet property="echoView" destination="VwB-sd-Inl" id="6ho-Ha-vm6"/>
                         <outlet property="facebookNameView" destination="Vg0-ev-2Df" id="fcT-60-Ikv"/>
                         <outlet property="facebookView" destination="V69-3V-u3T" id="Swh-pW-2gM"/>
-                        <outlet property="facebookYConstraint" destination="V69-3V-u3T" id="HGW-tA-OZh"/>
-                        <outlet property="friendView" destination="sP6-zd-95N" id="WRy-9Y-pgg"/>
                         <outlet property="instagramNameView" destination="jZZ-Sl-qfN" id="jh3-H1-b52"/>
                         <outlet property="instagramView" destination="Xo0-TS-IMo" id="82R-qp-KJL"/>
-                        <outlet property="instagramYConstraint" destination="Xo0-TS-IMo" id="MC8-dD-GzG"/>
                         <outlet property="linkedinNameView" destination="nGh-hh-oeX" id="UOX-Hi-NWY"/>
                         <outlet property="linkedinView" destination="Y0Y-hh-7d2" id="hDA-gs-xNE"/>
-                        <outlet property="linkedinYConstraint" destination="Y0Y-hh-7d2" id="Ema-r2-VMn"/>
                         <outlet property="nameView" destination="SI0-7Z-zs8" id="uwe-Gv-mXP"/>
-                        <outlet property="searchBar" destination="8Rl-Ue-79O" id="Eib-Id-1dQ"/>
-                        <outlet property="searchDisplayController" destination="9Dc-pu-mn6" id="dXX-rB-cQw"/>
+                        <outlet property="phoneNameView" destination="enm-NY-rTu" id="VjF-wi-wHZ"/>
+                        <outlet property="phoneView" destination="JQd-Oz-nLB" id="N8t-O9-gd9"/>
+                        <outlet property="searchBar" destination="hi4-1R-GIh" id="2IW-5l-Ypb"/>
                         <outlet property="snapchatNameView" destination="xdr-sc-7e2" id="rBJ-8i-MPO"/>
                         <outlet property="snapchatView" destination="HBq-a7-Vw3" id="B66-o4-643"/>
-                        <outlet property="snapchatYConstraint" destination="HBq-a7-Vw3" id="Wnb-2c-ixY"/>
                         <outlet property="soundcloudNameView" destination="qdb-Tf-BC6" id="iw2-cH-frF"/>
                         <outlet property="soundcloudView" destination="a5v-xI-xMa" id="SeO-38-LJT"/>
                         <outlet property="twitterNameView" destination="Jy7-fC-fZd" id="HLP-jL-wzO"/>
                         <outlet property="twitterView" destination="HTb-TV-QBt" id="rOC-lx-fkI"/>
-                        <outlet property="twitterYConstraint" destination="HTb-TV-QBt" id="SOB-aq-yBQ"/>
                         <outlet property="youtubeNameView" destination="vsi-DV-zUu" id="aT2-VY-mw6"/>
                         <outlet property="youtubeView" destination="xKt-9r-9cB" id="EGI-m1-0Bc"/>
                         <segue destination="IOj-aD-Ssq" kind="show" identifier="view" id="ffx-64-bEA"/>
@@ -372,7 +374,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1759" y="-714"/>
+            <point key="canvasLocation" x="1758.75" y="-714.08450704225356"/>
         </scene>
         <!--Echo View Controller-->
         <scene sceneID="2AV-Lb-3hW">
@@ -583,7 +585,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectCell" rowHeight="50" id="j7k-d3-S5z">
-                                <rect key="frame" x="0.0" y="100" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="99.5" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j7k-d3-S5z" id="Nni-wJ-zew">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -628,7 +630,7 @@
                         </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrivacyCell" textLabel="U7k-CA-nsn" detailTextLabel="aWF-T4-ZZf" rowHeight="53" style="IBUITableViewCellStyleValue1" id="qtc-xF-d65">
-                                <rect key="frame" x="0.0" y="90" width="320" height="53"/>
+                                <rect key="frame" x="0.0" y="89.5" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qtc-xF-d65" id="2uG-Be-LDr">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
@@ -679,7 +681,7 @@
                         </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddRemoveCell" textLabel="pPK-hB-bod" detailTextLabel="zXU-Ia-HBb" style="IBUITableViewCellStyleValue1" id="FUK-Al-uik">
-                                <rect key="frame" x="0.0" y="100" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FUK-Al-uik" id="hbR-sL-iFe">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -726,13 +728,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HOZ-hg-eTQ">
-                                <rect key="frame" x="0.0" y="0.0" width="109" height="118"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeY-ko-6HQ">
-                                <rect key="frame" x="0.0" y="0.0" width="109" height="118"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeY-ko-6HQ">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Click to add"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title=" +"/>
                                 <connections>
                                     <action selector="btnClicked:" destination="dDm-rm-VSh" eventType="touchUpInside" id="CRx-PK-lqJ"/>
                                 </connections>
@@ -747,7 +750,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0iM-s2-awd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4596" y="-1767"/>
+            <point key="canvasLocation" x="4595.625" y="-1767.2535211267607"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="Zqn-q0-nFM">
@@ -777,7 +780,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" rowHeight="65" id="pcW-BS-I6S">
-                                <rect key="frame" x="0.0" y="56" width="320" height="65"/>
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pcW-BS-I6S" id="txA-m8-cbl">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
@@ -1480,20 +1483,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="zfk-dG-Pxs">
-                                <rect key="frame" x="150" y="135" width="76" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Connects 10">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="n1t-2I-HQW">
-                                <rect key="frame" x="243" y="135" width="58" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Friends 10">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFT-a0-M2X" userLabel="Soundcloud View">
                                 <rect key="frame" x="0.0" y="518" width="322" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1558,38 +1547,15 @@
                                     <action selector="ConnectClicked:" destination="IOj-aD-Ssq" eventType="touchUpInside" id="voR-Qb-gdX"/>
                                 </connections>
                             </button>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="x6K-ZF-2l6">
-                                <rect key="frame" x="0.0" y="48" width="320" height="213"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="p9N-Dq-4EM">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
-                                <prototypes>
-                                    <tableViewCell hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectCell" rowHeight="50" id="LSW-aR-H93" customClass="SearchTableViewCell" customModule="MinnoSwift" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="100" width="320" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LSW-aR-H93" id="GV5-dg-5xY">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="connectTableView" destination="x6K-ZF-2l6" id="rft-JZ-SJx"/>
                         <outlet property="contactView" destination="2of-kn-Z78" id="kSN-x8-TJF"/>
                         <outlet property="facebookNameView" destination="9iJ-B0-l0c" id="xBv-G3-3Df"/>
                         <outlet property="instagramNameView" destination="zto-fv-DXU" id="pH1-FP-8mK"/>
                         <outlet property="linkedinNameView" destination="gMq-p0-waJ" id="5gE-rI-Uuc"/>
                         <outlet property="nameView" destination="zNP-s8-WUF" id="wJQ-fb-EoF"/>
-                        <outlet property="searchBar" destination="p9N-Dq-4EM" id="I8p-jD-fEC"/>
                         <outlet property="snapchatNameView" destination="g9G-MG-TZk" id="ve1-u8-nrc"/>
                         <outlet property="soundcloudNameView" destination="1Ay-Hb-WlB" id="W2C-Ki-I8x"/>
                         <outlet property="twitterNameView" destination="rUo-sK-yaE" id="HWK-Zz-mnQ"/>
@@ -1626,6 +1592,7 @@
         <image name="linkedin" width="112" height="112"/>
         <image name="minno" width="80" height="80"/>
         <image name="ok" width="225" height="225"/>
+        <image name="phone" width="134" height="134"/>
         <image name="settings" width="112" height="112"/>
         <image name="snapchat" width="112" height="112"/>
         <image name="soundcloud" width="300" height="300"/>
@@ -1634,9 +1601,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cxL-La-C5w"/>
-        <segue reference="dOR-W7-aea"/>
-        <segue reference="PmB-Oc-JCM"/>
-        <segue reference="dsS-Nl-Tdr"/>
+        <segue reference="Mvx-t3-DDj"/>
         <segue reference="nQZ-w7-dmD"/>
+        <segue reference="dsS-Nl-Tdr"/>
+        <segue reference="PmB-Oc-JCM"/>
     </inferredMetricsTieBreakers>
 </document>
